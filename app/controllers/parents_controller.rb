@@ -13,10 +13,6 @@ class ParentsController < ApplicationController
     @baby = Baby.new
   end
 
-  def index
-
-  end
-
   # getメソッドでoutページを表示
   def out
 
