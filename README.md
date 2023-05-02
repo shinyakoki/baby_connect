@@ -22,7 +22,7 @@ BabyConnectを通してパートナ同士がを繋がる、また、赤ちゃん
 
 ## 設計書
 ER図 https://drive.google.com/file/d/1ziXX6hozL96nA7x3N5HHoEj1S-9Zxa_o/view?usp=sharing<br>
-
+ワイヤーフレーム https://www.figma.com/file/y1yYzRNBonyxrj1Tr9ZHiB/BabyConnect?node-id=0%3A1&t=2aceMw701O6074Ml-1<br>
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
