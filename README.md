@@ -30,6 +30,6 @@ ER図 https://drive.google.com/file/d/1ziXX6hozL96nA7x3N5HHoEj1S-9Zxa_o/view?usp
 - IDE：Cloud9
 
 ## 使用素材
-- 背景画像 TEMPlATE PARTY
+- 背景画像 Templte-Party
 - ロゴ DesignEvo
 - アニメーション背景 https://goworkship.com/magazine/css-javascript-animated-backgrounds/

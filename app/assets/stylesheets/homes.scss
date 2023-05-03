@@ -4,14 +4,7 @@
 
 // アニメーション背景導入
 body {
-    background: -moz-linear-gradient(45deg, #02e1ba 0%, #26c9f2 29%, #d911f2 66%, #ffa079 100%);
-    background: -webkit-linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);
-    background: linear-gradient(45deg, #02e1ba 0%,#26c9f2 29%,#d911f2 66%,#ffa079 100%);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-	-moz-animation: Gradient 15s ease infinite;
-	animation: Gradient 15s ease infinite;
-	/*min-height: calc(100vh - 2rem);*/
+	min-height: calc(100vh - 2rem);
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -23,8 +16,8 @@ body {
 body::before,
 body::after {
 	content: "";
-	width: 70vmax;
-	height: 70vmax;
+	width: 70vmin;
+	height: 70vmin;
 	position: absolute;
 	background: rgba(255, 255, 255, 0.07);
 	left: -20vmin;
@@ -40,7 +33,6 @@ body::after {
     width: 70vmin;
     height: 70vmin;
     left: auto;
-    right: -10vmin;
     top: auto;
     bottom: 0;
     animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;

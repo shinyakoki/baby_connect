@@ -1,14 +1,14 @@
 <footer style="background-color: rgba(255, 255, 255, 1); height: 120px; width: 100%;">
   <div class="container-fluid mt-auto">
     <div class="row">
-      <div class='col-3'>
+      <div class='col-lg-3 col-md-3 col-3'>
         <%= link_to root_path, class: "ml-2" do %>
-          <%= image_tag('logo.jpg', width: '120px', height: '120px') %>
+          <%= image_tag('logo.jpg', width: '110px', height: '120px') %>
         <% end %>
       </div>
 
-      <div class='col-6'>
-        <div class="text-center pt-4">
+      <div class='col-lg-6 col-md-6 col-6'>
+        <div class="text-center pt-md-4 pt-2">
           <%= link_to "https://twitter.com/", class: "text-decoration-none mr-1" do %>
             <i class="fab fa-twitter-square h2 text-muted"></i>
           <% end %>
@@ -25,10 +25,13 @@
             <i class="fab fa-line h2 text-muted"></i>
           <% end %>
         </div>
-        <p class="text-center text-muted" style="font-size: 0.8rem; font-family: 'Yomogi', cursive;">&copy; 2023 BabyConnect ALL Rights reserved.</p>
+        <p class="text-center text-muted" style="font-size: 0.7rem; font-family: 'Yomogi', cursive; margin: 0;">&copy; 2023 BabyConnect ALL Rights reserved.</p>
+        <p class="text-center text-muted" style="font-size: 0.7rem; font-family: 'Yomogi', cursive; margin: 0;">《Web Design:Template-Party》</p>
       </div>
 
-      <div class='col-3'>
+      <div class='col-lg-3 col-md-3 col-3 d-flex flex-column align-items-center justify-content-center'>
+        <%= link_to "ブログ", "https://qiita.com/shinyakoki", style: "color: black; font-family: 'Yomogi', cursive; font-size: 0.8rem;" %>
+        <%= link_to "お問い合わせ", "https://forms.gle/RattSh2m6HSGvx4K7", style: "color: black; font-family: 'Yomogi', cursive; font-size: 0.8rem;" %>
       </div>
     </div>
   </div>
