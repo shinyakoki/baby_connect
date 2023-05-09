@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class='mx-auto col-sm-12 col-lg-8 col-xl-6'>
+      <div class="mt-5 mb-5 text-center">
+       <h1>welcome to BabyConnect</h1>
+      </div>
+
+      <p class="mt-4 mb-0 text-center">2回目以降の方はこちら</p>
+      <div class="btn-wrapper col-10 mx-auto">
+
+        <div class="row">
+          <% if user_signed_in? %>
+            <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: "btn btn-danger btn-sm btn-block mb-3 sign_in" %>
+          <% else %>
+            <%= link_to 'Login画面へ進む',new_user_session_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in" %>
+          <% end %>
+        </div>
+
+        <div class="row">
+          <%= link_to 'ゲストログイン',users_guest_sign_in_path, method: :post, class: "btn btn-secondary btn-sm btn-block mb-5 sign_in" %>
+        </div>
+
+        <p class="mt-4 mb-0 text-center">はじめてご利用の方はこちら</p>
+        <div class="row">
+          <%= link_to '赤ちゃん登録へ進む',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
+        </div>
+
+        <p class="mt-3 mb-0 text-centar">パートナーとアカウントを共有して使用する方はこちら</p>
+        <div class="row">
+          <%= link_to 'ParentConnect',new_parent_path, class: "btn btn-secondary btn-sm btn-block sign_up" %>
+        </div>
+        <div class="mt-5 text-center">
+         <%= link_to "お問い合わせ", "https://forms.gle/RattSh2m6HSGvx4K7" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

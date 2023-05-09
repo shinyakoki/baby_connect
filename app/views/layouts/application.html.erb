@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <!--Bootstrapを導入-->
+    <!--stylesheet_link_tag→ cssは、app/assets 配下で管理-->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--Jjavascript_pack_tag→ javaScriptはapp/javascript 配下で管理-->
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--ここまで-->
   </head>
 
   <body>
