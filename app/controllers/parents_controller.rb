@@ -7,13 +7,22 @@ class ParentsController < ApplicationController
   def shared
   end
 
+  def registered
+    @nickname = params[:nickname]
+    @sex = params[:sex]
+    @date_of_birth = params[:date_of_birth]
+  end
+
+
   def create
-    # １.&2. データを受け取り新規登録するためのインスタンス作成
+    byebug
     parent = Parent.new(parent_params)
-    # 3. データをデータベースに保存するためのsaveメソッド実行
-    parent.save
-    # 4. XXX画面へリダイレクト
-    redirect_to '/parents/shared'
+    if parent.save
+      byebug
+       redirect_to registered_parent_path(nickname: parent.nickname, sex: parent.sex, date_of_birth: parent.date_of_birth)
+    else
+    # 保存に失敗した場合の処理
+    end
   end
 
   private

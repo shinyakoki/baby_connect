@@ -1,6 +1,7 @@
 class Baby < ApplicationRecord
 
-has_many :shares
-has_many :parents, through: :shares
-
+# アソシエーションの記述
+# 各babyは1つのuser(親に)所属している。
+belongs_to :user
+# ここまで
 end

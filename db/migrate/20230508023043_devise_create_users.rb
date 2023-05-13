@@ -32,9 +32,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      ## 名前を保存するカラム
-      t.string :name
-      
+
+      # メンターさんにより削除された
+      ## ニックネームを保存するカラム
+      # t.string :nickname, null: false
+      # 性別を保存するカラム  enumで
+      # t.integer :sex, null: false, default: 0
+      # 生年月日を保存するカラム
+      # t.date :date_of_birth, null: false
+
       t.timestamps null: false
     end
 

@@ -32,6 +32,10 @@ class Users::SessionsController < Devise::SessionsController
      redirect_to baby_path(current_user)
    end
   # ここまで
+
+  
+
+
 end
 
 
