@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations'}
+  get 'blogs/index'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # ゲストログイン機能
@@ -11,12 +15,12 @@ Rails.application.routes.draw do
   # rootメソッドでtopアクションのviewをrootに設定
   root to: 'homes#top'
 
-  get "parents/shared" =>"parents#shared"
-  get "parents/registered" => "parents#registered", as: :parents_registered
-
+  get "/out" =>"parents#out"
+  patch "/withdraw" =>"parents#withdraw"
   # ルーティングを一括生成
   resources :babies
   resources :calendars
   resources :parents
   resources :sharing_codes
+  resources :blogs
 end

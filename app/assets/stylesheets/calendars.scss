@@ -1,3 +1,33 @@
 // Place all the styles related to the calendars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// 前月の日付セルの背景色を透明にする
+.simple-calendar .prev-month {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+// 翌月の日付セルの背景色を透明にする
+.simple-calendar .next-month{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+// 平日の日付の色を変更する場合はこちらに記述
+.weekday{
+
+}
+
+// 日曜日の日付の色を赤に設定
+.sunday{
+  color: red;
+}
+
+// 土曜日の日付の色を青に設定
+.saturday{
+  color:blue;
+}
+
+// 100vhはビューポートの高さの100%を表します
+.toppage{
+  min-height: 100vh;
+}

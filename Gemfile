@@ -57,3 +57,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ユーザー認証機能
 gem 'devise'
+
+# カレンダー機能
+gem 'simple_calendar'
+
+# 国際化機能(多言語対応)
+gem 'rails-i18n'

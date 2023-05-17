@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -10,9 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # GET /resource/edit
   # def edit
@@ -63,35 +64,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
-    baby = Baby.new(
-        nickname: params[:user][:nickname],
-        sex:  params[:user][:sex],
-        date_of_birth:  params[:user][:date_of_birth]
-      )
-
-    baby.save!
-  #byebug
-    parents_registered_path(
-    nickname: resource.nickname,
-    sex: resource.sex,
-    date_of_birth: resource.date_of_birth
-    )
-  end
-
-  # def create
-   # フォームから送信されたパラメータを受け取る
-  # nickname = params[:nickname]
-  # sex = params[:sex]
-  # date_of_birth = params[:date_of_birth]
-
-   #registeredアクションにリダイレクトする際にパラメータを渡す
-  # redirect_to parents_registered_path(nickname: nickname, sex: sex, date_of_birth: date_of_birth)
-  # end
-
-  private
-
-  def sign_up_params
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :sex, :date_of_birth)
+    parent_path(current_user.id)
   end
 
 end

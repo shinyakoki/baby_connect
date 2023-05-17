@@ -1,0 +1,17 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; padding: 100px;">
+  <table style="border: none; background-color: rgba(255, 255, 255, 0.2); border-radius: 20px">
+    <tr>
+      <td style="padding: 20px; text-align: center; width: 330px; height: 330px;">
+        <h3>本当に退会しますか？</h3>
+        <br>
+        <%= link_to withdraw_path, class: "btn btn-danger text-center px-3 pt-2", style: "color: white;", method: :patch, data: { confirm: "【確認】退会すると登録情報やこれまでの記録が閲覧できなくなります。本当に退会しますか？" } do %>
+          退会する
+        <% end %>
+        <br>
+        <%= link_to parent_path(current_user.id), class: "btn btn-secondary text-center mt-4 px-2 pt-2", style: "color: white;" do %>
+          キャンセル
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>

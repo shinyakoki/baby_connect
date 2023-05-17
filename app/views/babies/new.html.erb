@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class='mx-auto col-sm-12 col-lg-8 col-xl-6'>
+      <div class="mt-5 mb-3 text-center">
+       <h1 style="font-family: 'Arial', sans-serif;">赤ちゃん登録</h1>
+      </div>
+
+      <h2 class="mt-2 mb-0 text-center">ニックネーム<br /></h2>
+      <p class="mt-0 mb-0 text-center">赤ちゃんのニックネームを教えてください</p>
+      <div class="btn-wrapper col-10 mx-auto">
+        <%= form_for(@baby) do |f| %>
+          <div class="mt-0 mb-3 text-center">
+            <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" , :size=>"48" , placeholder: "ニックネームを入力して下さい" %>
+          </div>
+
+          <div class="mt-0 mb-3 text-center">
+            <h2 class="mt-4 mb-0 text-center">性別<br /></h2>
+            <p class="mt-0 mb-0 text-center">性別を設定してください</p>
+
+
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <%= f.radio_button :sex, :boy %>
+                男の子
+              </label>
+              <label class="btn btn-secondary">
+                <%= f.radio_button :sex, :girl %>
+                女の子
+              </label>
+            </div>
+          </div>
+
+          <h2 class="mt-4 mb-0 text-center">生年月日<br /></h2>
+          <p class="mt-0 mb-0 text-center">生年月日を設定してください</p>
+          <div class="mt-0 mb-3 text-center">
+            <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" , :size=>"48" , placeholder: "生年月日を入力して下さい" %>
+          </div>
+
+          <div class="mt-0 mb-5 text-center">
+            <%= f.submit "登録する", class:"btn btn-secondary btn-sm btn-block mb-3"%>
+          </div>
+
+          <div class="mt-0 mb-2 text-center">
+            <%= f.submit "登録する", class:"btn btn-secondary btn-sm btn-block mb-3"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

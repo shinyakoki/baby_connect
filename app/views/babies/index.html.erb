@@ -1,0 +1,84 @@
+<header style="width: 100%; height: 80px; border-bottom: 3px solid #f08080;">
+  <nav style="display: flex; justify-content: center; align-items: center; height: 100%;">
+    <h1 style="margin: 0; text-align: center;">赤ちゃんの追加・編集</h1>
+  </nav>
+</header>
+
+<style>
+  #baby-link {
+    background-color: rgba(221, 221, 221, 0.6);
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #a9a9a9;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  #baby-link p {
+    margin: 0;
+  }
+
+  #baby-link::after {
+    content: "＞";
+    position: absolute;
+    right: 10px;
+    color: #a9a9a9;
+</style>
+
+<style>
+  #add-baby-link {
+    background-color: rgba(221, 221, 221, 0.6);
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #a9a9a9;
+    margin-top: 8px;
+    position: relative;
+  }
+
+  #add-baby-link p {
+    margin: 0;
+  }
+
+  #add-baby-link::after {
+    content: "＞";
+    position: absolute;
+    right: 10px;
+    color: #a9a9a9;
+</style>
+
+<div style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 200px); padding: 100px;">
+  <table style="border: none; background-color: rgba(255, 255, 255, 0.4); border-radius: 20px">
+    <tr>
+      <td style="padding: 30px; text-align: center; width: 600px; height: 400px; margin: 0 auto;">
+        <div class="row" id="baby-link">
+          <p>赤ちゃん情報編集</p>
+        </div>
+
+        <script>
+          $(document).ready(function() {
+            $('#baby-link').click(function() {
+              window.location.href = "<%= edit_baby_path(current_user.id) %>";
+            });
+          });
+        </script>
+
+        <div class="row" id="add-baby-link">
+          <p>新規追加</p>
+        </div>
+
+        <script>
+          $(document).ready(function() {
+            $('#add-baby-link').click(function() {
+              window.location.href = "<%= new_baby_path %>";
+            });
+          });
+        </script>
+      </td>
+    </tr>
+  </table>
+</div>
+<%= render partial: 'babies/footer' %>

@@ -1,0 +1,86 @@
+<div style="background-color: rgba(255, 255, 255, 1); display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 80px);">
+  <style>
+    #add-baby-link {
+      background-color: pink;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid pink;
+      margin-bottom: 10px;
+      position: relative;
+      border-radius: 50px;
+    }
+
+    #add-baby-link p {
+      margin: 0;
+      color: white;
+    }
+
+    #add-baby-link::after {
+      content: "＞";
+      position: absolute;
+      right: 10px;
+      color: white;
+    }
+  </style>
+
+  <style>
+    #add-logout-link {
+      background-color: pink;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid pink;
+      margin-top: 15px;
+      position: relative;
+      border-radius: 50px;
+    }
+
+    #add-logout-link p {
+      margin: 0;
+      color: white;
+    }
+
+    #add-logout-link::after {
+      content: "＞";
+      position: absolute;
+      right: 10px;
+      color: white;
+    }
+  </style>
+  <h1 style="color: #4682b4">Mypage</h1>
+  <div style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 200px); padding: 100px;">
+    <table>
+      <tr>
+        <td style="padding: 20px; text-align: center; width: 500px; height: 300px; margin: 0 auto;">
+          <div class="row" id="add-baby-link">
+            <p>赤ちゃんの追加・編集</p>
+          </div>
+
+          <script>
+            $(document).ready(function() {
+              $('#add-baby-link').click(function() {
+                window.location.href = "<%= babies_path %>";
+              });
+            });
+          </script>
+
+          <div class="row" id="add-logout-link">
+            <p>退会</p>
+          </div>
+
+          <script>
+            $(document).ready(function() {
+              $('#add-logout-link').click(function() {
+                window.location.href = "<%= out_path %>";
+              });
+            });
+          </script>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<%= render partial: 'babies/footer' %>

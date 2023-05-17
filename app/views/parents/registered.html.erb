@@ -8,15 +8,15 @@
     <div class="mt-5 mb-5 text-center">
       <p class="mt-1 mb-0 text-center">ニックネーム: <%= @nickname %></p>
     </div>
-      
+
     <div class="mt-5 mb-5 text-center">
       <p class="mt-0 mb-0 text-center">性別: <%= @sex %></p>
     </div>
-      
+
     <div class="mt-5 mb-5 text-center">
       <p class="mt-0 mb-0 text-center">生年月日: <%= @date_of_birth %></p>
     </div>
-  
+
     <div class="row">
       <%= link_to '次へ', baby_path(current_user), method: :get, class: "btn btn-secondary btn-sm btn-block mb-5 次へ" %>
     </div>

@@ -1,28 +1,33 @@
 class ParentsController < ApplicationController
 
   def new
-    @parent = Parent.new
+
   end
 
-  def shared
+  def show
+
   end
 
-  def registered
-    @nickname = params[:nickname]
-    @sex = params[:sex]
-    @date_of_birth = params[:date_of_birth]
+  def index
+
+  end
+
+  # getメソッドでoutページを表示
+  def out
+
+  end
+
+  # 退会処理
+  def withdraw
+    @user = current_user
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
   end
 
 
   def create
-    byebug
-    parent = Parent.new(parent_params)
-    if parent.save
-      byebug
-       redirect_to registered_parent_path(nickname: parent.nickname, sex: parent.sex, date_of_birth: parent.date_of_birth)
-    else
-    # 保存に失敗した場合の処理
-    end
+
   end
 
   private
