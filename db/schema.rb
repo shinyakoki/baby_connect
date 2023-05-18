@@ -16,8 +16,6 @@ ActiveRecord::Schema.define(version: 2023_05_14_110742) do
     t.string "nickname", null: false
     t.integer "sex", null: false
     t.date "date_of_birth", null: false
-    t.string "share_code", null: false
-    t.datetime "share_code_datetime", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

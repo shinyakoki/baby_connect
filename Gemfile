@@ -63,3 +63,6 @@ gem 'simple_calendar'
 
 # 国際化機能(多言語対応)
 gem 'rails-i18n'
+
+# enum機能
+gem "enum_help"

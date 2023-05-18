@@ -1,5 +1,6 @@
 class BabiesController < ApplicationController
   def show
+   @baby = Baby.find(params[:id])
   end
 
   def index
@@ -7,6 +8,13 @@ class BabiesController < ApplicationController
 
   def new
      @baby = Baby.new
+  end
+
+  def create
+    # blog_parameter メソッドで必要な属性を取得し、その属性を持つ新しいブログ記事をデータベースに保存する。
+    Baby.create(baby_parameter)
+    # ブログ記事の作成が完了した後に一覧ページにリダイレクト
+    redirect_to babies_path
   end
 
   def edit

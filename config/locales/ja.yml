@@ -1,4 +1,14 @@
+# カレンダー機能内日本語化
 ja:
   simple_calendar:
     previous: "前月"
     next: "翌月"
+# ここまで
+
+# enum日本語化
+  enums:
+    baby:
+      sex:
+        boy: "男の子"
+        girl: "女の子"
+# ここまで

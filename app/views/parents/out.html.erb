@@ -1,17 +1,24 @@
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh; padding: 100px;">
-  <table style="border: none; background-color: rgba(255, 255, 255, 0.2); border-radius: 20px">
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: white;">
+  <table style="border: none; border-radius: 20px; padding: 20px; text-align: center; width: 330px; height: 330px;">
     <tr>
-      <td style="padding: 20px; text-align: center; width: 330px; height: 330px;">
-        <h3>本当に退会しますか？</h3>
+      <td>
+        <h3 style="color: #4682b4;">本当に退会しますか？</h3>
         <br>
-        <%= link_to withdraw_path, class: "btn btn-danger text-center px-3 pt-2", style: "color: white;", method: :patch, data: { confirm: "【確認】退会すると登録情報やこれまでの記録が閲覧できなくなります。本当に退会しますか？" } do %>
+        <%= link_to withdraw_path, class: "btn text-center px-3 pt-2 rounded-pill", style: "background-color: #FFC0CB; color: black;", method: :patch, data: { confirm: "【確認】退会すると登録情報やこれまでの記録が閲覧できなくなります。本当に退会しますか？" } do %>
           退会する
         <% end %>
         <br>
-        <%= link_to parent_path(current_user.id), class: "btn btn-secondary text-center mt-4 px-2 pt-2", style: "color: white;" do %>
+        <%= link_to parent_path(current_user.id), class: "btn text-center mt-4 px-2 pt-2 rounded-pill", style: "background-color: #FFC0CB; color: black;" do %>
           キャンセル
         <% end %>
       </td>
     </tr>
   </table>
 </div>
+
+
+
+
+
+
+
