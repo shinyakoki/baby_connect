@@ -11,4 +11,11 @@ ja:
       sex:
         boy: "男の子"
         girl: "女の子"
+    record:
+      item:
+        milk: "ミルク"
+        breast_mill: "母乳"
+        meal: "ごはん"
+        sleeping: "ねる"
+
 # ここまで

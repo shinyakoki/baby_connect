@@ -31,3 +31,15 @@
 .toppage{
   min-height: 100vh;
 }
+
+// カレンダー内の奇数週の色指定
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: pink;
+ }
+
+// カレンダー内偶数週の色指定
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: #fffafa;
+ }

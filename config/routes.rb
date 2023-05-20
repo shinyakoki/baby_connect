@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # rootメソッドでtopアクションのviewをrootに設定
   root to: 'homes#top'
 
+
   get "/out" =>"parents#out"
   patch "/withdraw" =>"parents#withdraw"
   # ルーティングを一括生成
@@ -23,4 +24,10 @@ Rails.application.routes.draw do
   resources :parents
   resources :sharing_codes
   resources :blogs
+
+  get "/babies/:id/new_record" =>"babies#new_record"
+  post "/babies/:id/create_record" =>"babies#create_record"
+  post "/babies/:id/next_day" =>"babies#next_day"
+  post "/babies/:id/back_day" =>"babies#back_day"
+
 end

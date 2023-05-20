@@ -1,32 +1,40 @@
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh; padding: 100px;">
-  <table style="border: none; background-color: rgba(255, 255, 255, 0.2); border-radius: 20px">
-    <tr>
-      <td style="padding: 20px; text-align: center; width: 550px; height: 400px;">
-        <%= form_with(model: @blog, local: true) do |form| %>
-          <div class="title text-center">
-            <div class="form-tag text-center">タイトル</div>
-            <%= form.text_field :title, :size=>32 %>
-          </div>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+  body {
+    font-family: 'Yomogi', cursive;
+  }
+  </style>
 
-          <div class="content text-center">
-            <div class="form-tag text-center">内容</div>
-            <%= form.text_area :content, rows: 3, cols: 31.5 %>
-          </div>
+<body>
+  <div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 80px);">
+    <table style="border: none; border-radius: 20px; max-width: 100%; background-color: rgba(255, 255, 255, 0.8);">
+      <tr>
+        <h2>カレンダーを編集する</h2>
+        <td style="padding: 20px; text-align: center; width: 500px; height: 400px;">
+          <%= form_with(model: @blog, local: true) do |form| %>
+            <div class="title text-center">
+              <div class="form-tag text-center">タイトル</div>
+              <%= form.text_field :title, :size=>32 %>
+            </div>
 
-          <div class="time text-center">
-            <div class="form-tag text-center">時間</div>
-            <%= form.datetime_select :start_time %>
-          </div>
+            <div class="content text-center">
+              <div class="form-tag text-center">内容</div>
+              <%= form.text_area :content, rows: 3, cols: 31.5 %>
+            </div>
 
-          <div class="submit mt-3 text-center">
-            <%= form.submit %>
-          </div>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-</div>
+            <div class="time text-center">
+              <div class="form-tag text-center">時間</div>
+              <%= form.datetime_select :start_time %>
+            </div>
 
+            <div class="submit mt-4 text-center">
+              <%= form.submit "投稿する", style: "background-color: pink; border: none; border-radius: 30px; padding: 10px 20px; color: whiste; font-weight: bold;" %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
 
-
-
+  <%= render partial: 'babies/footer' %>
+</body>

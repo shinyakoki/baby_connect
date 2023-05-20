@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class='mx-auto col-sm-12 col-lg-8 col-xl-6'>
+      <div class="mt-5 mb-3 text-center">
+       <h1 style="font-family: 'Arial', sans-serif;">赤ちゃん登録</h1>
+      </div>
+
+      <h2 class="mt-2 mb-0 text-center">ニックネーム<br /></h2>
+      <p class="mt-0 mb-0 text-center">赤ちゃんのニックネームを教えてください</p>
+      <div class="btn-wrapper col-10 mx-auto">
+        <%= form_with url: "/babies/#{@baby.id}/create_record" do |f| %>
+          <div class="mt-0 mb-3 text-center">
+            <%= f.select :item, Record.items.keys %>
+          </div>
+
+
+
+
+          <div class="mt-0 mb-3 text-center">
+            <%= f.text_field :amount, autofocus: true, autocomplete: "amount" , placeholder: "量を入力して下さい" %>ml
+          </div>
+
+          <div class="mt-0 mb-3 text-center">
+            <%= f.date_field :date, autofocus: true, autocomplete: "date" %>
+          </div>
+
+          <div class="mt-0 mb-5 text-center">
+            <%= f.submit "登録する", class:"btn btn-secondary btn-sm btn-block mb-3"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

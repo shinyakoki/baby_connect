@@ -1,41 +1,56 @@
-<p id="notice"><%= notice %></p>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+  body {
+    font-family: 'Yomogi', cursive;
+  }
+  </style>
+<body>
+<div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 80px);">
+  <table style="border: none; border-radius: 20px; max-width: 100%; background-color: rgba(255, 255, 255, 0.8);">
+      <h2>投稿内容</h2>
+      <td style="padding: 20px; text-align: center; width: 500px; height: 400px; font-family: 'Yomogi', cursive;">
+        <table class="table" style="max-width: 100%;">
+            <thead class="rounded-circle" style="background-color: #ffc0cb;">
 
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh; padding: 100px;">
-  <table style="border: none; background-color: rgba(255, 255, 255, 0.2); border-radius: 20px">
-    <tr>
-      <td style="padding: 20px; text-align: center; width: 550px; height: 400px;">
-        <p>
-          <strong>タイトル</strong>
-          <%= @blog.title %>
-        </p>
+              <tr>
+                <th style="color: white;">タイトル</th>
+                <th style="color: white;">内容</th>
+                <th style="color: white;">日時</th>
+              </tr>
+            </thead>
+          <tbody>
+            <td>
+            <%= @blog.title %>
+            </td>
 
-        <p>
-          <strong>内容</strong>
-          <%= @blog.content %>
-        </p>
+            <td>
+            <%= @blog.content %>
+            </td>
 
-        <p>
-          <strong>日時</strong>
-          <%= @blog.start_time.strftime("%m-%d") %>
-        </p>
+            <td>
+            <%= @blog.start_time.strftime("%m-%d") %>
+            </td>
+          </tbody>
+        </table>
 
         <br>
-        <%= link_to edit_blog_path(@blog), class: "btn btn-success text-center mt-3 px-4 pt-2", style: "color: white;" do %>
-          投稿を編集する
-        <% end %>
+        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+          <%= link_to edit_blog_path(@blog), class: "btn btn-info text-center px-1 pt-2 rounded-pill", style: "color: white; width: 120px; white-space: nowrap;" do %>
+            投稿を編集する
+          <% end %>
 
-        <br style="margin-bottom: 10px;">
+          <%= link_to blog_path(@blog.id), class: "btn btn-danger text-center px-1 pt-2 rounded-pill", style: "color: white; width: 120px; white-space: nowrap;", method: :delete, data: { confirm: '本当に削除しますか?' } do %>
+            投稿を削除する
+          <% end %>
 
-        <%= link_to blog_path(@blog.id), class: "btn btn-danger text-center mt-2 px-4 pt-2", style: "color: white; margin-top: 10px;", method: :delete, data: { confirm: '本当に削除しますか?' } do %>
-          投稿を削除する
-        <% end %>
-
-        <br>
-
-        <%= link_to blogs_path, class: "btn btn-secondary text-center mt-2 px-4 pt-2", style: "color: white; width: 32%;" do %>
-          戻る
-        <% end %>
+          <%= link_to blogs_path, class: "btn btn-secondary text-center px-4 pt-2 rounded-pill", style: "color: white; width: 120px; white-space: nowrap;" do %>
+            戻る
+          <% end %>
+        </div>
       </td>
     </tr>
   </table>
 </div>
+
+<%= render partial: 'babies/footer' %>
+</body>

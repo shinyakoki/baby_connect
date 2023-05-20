@@ -1,27 +1,31 @@
-<div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 80px);">
-  <h1 style="font-size: 70px; text-align: center; color: white; margin-bottom: 2rem; font-family: 'Noto Serif JP', serif;">welcome to BabyConnect</h1>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+</style>
+
+<div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 120px);">
+  <h1 style="font-size: 70px; text-align: center; color: white; margin-bottom: 2rem; font-family: 'Yomogi', cursive;">welcome to BabyConnect</h1>
 
   <div class="container">
     <div class="row justify-content-center align-items-end">
       <div class="col-sm-4 col-md-4 col-lg-2 text-center mt-2">
         <% if user_signed_in? %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger rounded-pill btn-sm btn-block text-white", style: "font-family: 'Noto Serif JP', serif;" %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger rounded-pill btn-sm btn-block text-white", style: "font-family: 'Yomogi', cursive;" %>
         <% else %>
-          <%= link_to 'Login画面へ進む', new_user_session_path, class: "btn btn-outline-info rounded-pill btn-sm btn-block text-white", style: "font-family: 'Noto Serif JP', serif;" %>
+          <%= link_to 'Login画面へ進む', new_user_session_path, class: "btn btn-outline-info rounded-pill btn-sm btn-block text-white", style: "font-family: 'Yomogi', cursive;" %>
         <% end %>
       </div>
 
       <div class="col-sm-4 col-md-4 col-lg-2 text-center mt-2">
-        <%= link_to 'ゲストLogin', users_guest_sign_in_path, method: :post, class: "btn btn-outline-info rounded-pill btn-sm btn-block text-white", style: "font-family: 'Noto Serif JP', serif;" %>
+        <%= link_to 'ゲストLogin', users_guest_sign_in_path, method: :post, class: "btn btn-outline-info rounded-pill btn-sm btn-block text-white", style: "font-family: 'Yomogi', cursive;" %>
       </div>
 
       <div class="col-sm-4 col-md-4 col-lg-2 text-center mt-2">
-        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-info rounded-pill btn-sm btn-block text-white", style: "font-family: 'Noto Serif JP', serif;" %>
+        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-info rounded-pill btn-sm btn-block text-white", style: "font-family: 'Yomogi', cursive;" %>
       </div>
     </div>
 
     <div class="mt-5 text-center">
-      <%= link_to "お問い合わせ", "https://forms.gle/RattSh2m6HSGvx4K7", style: "color: white;" %>
+      <%= link_to "お問い合わせ", "https://forms.gle/RattSh2m6HSGvx4K7", style: "color: white; font-family: 'Yomogi', cursive;" %>
     </div>
   </div>
 </div>

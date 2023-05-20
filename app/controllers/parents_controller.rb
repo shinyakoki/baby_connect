@@ -5,7 +5,8 @@ class ParentsController < ApplicationController
   end
 
   def show
-
+    # テーブルからレコードを1行取得。引数はid
+    # @baby = Baby.find(params[:id])
   end
 
   def index

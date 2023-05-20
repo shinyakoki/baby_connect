@@ -1,24 +1,28 @@
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: white;">
-  <table style="border: none; border-radius: 20px; padding: 20px; text-align: center; width: 330px; height: 330px;">
-    <tr>
-      <td>
-        <h3 style="color: #4682b4;">本当に退会しますか？</h3>
-        <br>
-        <%= link_to withdraw_path, class: "btn text-center px-3 pt-2 rounded-pill", style: "background-color: #FFC0CB; color: black;", method: :patch, data: { confirm: "【確認】退会すると登録情報やこれまでの記録が閲覧できなくなります。本当に退会しますか？" } do %>
-          退会する
-        <% end %>
-        <br>
-        <%= link_to parent_path(current_user.id), class: "btn text-center mt-4 px-2 pt-2 rounded-pill", style: "background-color: #FFC0CB; color: black;" do %>
-          キャンセル
-        <% end %>
-      </td>
-    </tr>
-  </table>
-</div>
-
-
-
-
-
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+    body {
+      font-family: 'Yomogi', cursive;
+    }
+  </style>
+</head>
+<body>
+  <div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 0px);">
+    <h3>本当に退会しますか？</h3>
+    <table style="border: none; border-radius: 20px; padding: 20px; text-align: center; width: 300px; height: 230px;">
+      <tr>
+        <td style="background-color: rgba(255, 255, 255, 0.6); border-radius: 20px;">
+          <br>
+          <%= link_to withdraw_path, class: "btn text-center px-3 pt-1 rounded-pill", style: "background-color: #FFC0CB; color: white;", method: :patch, data: { confirm: "【確認】退会すると登録情報やこれまでの記録が閲覧できなくなります。本当に退会しますか？" } do %>
+            退会する
+          <% end %>
+          <br>
+          <%= link_to parent_path(current_user.id), class: "btn text-center mt-4 px-2 pt-1 rounded-pill", style: "background-color: #FFC0CB; color: white;" do %>
+            キャンセル
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
 
 

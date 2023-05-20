@@ -29,8 +29,8 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     # ブログ記事を削除した時に
     @blog.destroy
-    # ブログ記事の削除が完了した後に一覧ページにリダイレクトしてフラッシュメッセージを表示
-    redirect_to blogs_path, notice:"削除しました"
+    # ブログ記事の削除が完了した後に一覧ページにリダイレクト
+    redirect_to blogs_path
   end
 
   def edit
@@ -43,8 +43,8 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     # もしアップデートに成功した時
     if @blog.update(blog_parameter)
-      # 一覧ページにリダイレクトしてフラッシュメッセージを表示
-      redirect_to blogs_path, notice: "編集しました"
+      # 一覧ページにリダイレクト
+      redirect_to blogs_path
     else
       # elseの場合、編集ページを表示
       render 'edit'

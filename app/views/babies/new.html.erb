@@ -1,51 +1,59 @@
-<div class="container">
-  <div class="row">
-    <div class='mx-auto col-sm-12 col-lg-8 col-xl-6'>
-      <div class="mt-5 mb-3 text-center">
-       <h1 style="font-family: 'Arial', sans-serif;">赤ちゃん登録</h1>
-      </div>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
-      <h2 class="mt-2 mb-0 text-center">ニックネーム<br /></h2>
-      <p class="mt-0 mb-0 text-center">赤ちゃんのニックネームを教えてください</p>
-      <div class="btn-wrapper col-10 mx-auto">
-        <%= form_for(@baby) do |f| %>
-          <div class="mt-0 mb-3 text-center">
-            <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" , :size=>"48" , placeholder: "ニックネームを入力して下さい" %>
+    body {
+      font-family: 'Yomogi', cursive;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 80px);">
+    <table style="border: none; border-radius: 20px; max-width: 100%; background-color: rgba(255, 255, 255, 0.8);">
+      <tr>
+        <h2>赤ちゃん新規登録</h2>
+        <td style="padding: 20px; text-align: center; width: 500px; height: 530px; font-family: 'Yomogi', cursive;">
+          <h2 class="mt-0 mb-0 text-center">ニックネーム<br /></h2>
+          <p class="mt-0 mb-0 text-center">赤ちゃんのニックネームを教えてください</p>
+          <div class="btn-wrapper col-10 mx-auto">
+            <%= form_for(@baby) do |f| %>
+              <div class="mt-0 mb-3 text-center">
+                <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", :size=>"48", placeholder: "ニックネームを入力して下さい", class: "rounded-pill" %>
+              </div>
+
+              <div class="mt-0 mb-3 text-center">
+                <h2 class="mt-4 mb-0 text-center">性別<br /></h2>
+                <p class="mt-0 mb-0 text-center">性別を設定してください</p>
+              </div>
+
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active" style="background-color: #63cdda; border-color: #63cdda;">
+                  <%= f.radio_button :sex, :boy %>
+                  男の子
+                </label>
+                <label class="btn btn-secondary" style="background-color: #ff6b6b; border-color: #ff6b6b;">
+                  <%= f.radio_button :sex, :girl %>
+                  女の子
+                </label>
+              </div>
+
+              <h2 class="mt-4 mb-0 text-center">生年月日<br /></h2>
+              <p class="mt-0 mb-0 text-center">生年月日を設定してください</p>
+              <div class="mt-0 mb-5 text-center">
+                <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth", :size=>"48", placeholder: "生年月日を入力して下さい", class: "rounded-pill" %>
+              </div>
+
+              <div class="mt-3 mb-0 text-center">
+                <%= f.submit "登録する", class:"btn btn-info btn-sm btn-block rounded-pill mb-3", onclick: "window.location.href = '#{babies_path}'" %>
+              </div>
+            <% end %>
           </div>
-
-          <div class="mt-0 mb-3 text-center">
-            <h2 class="mt-4 mb-0 text-center">性別<br /></h2>
-            <p class="mt-0 mb-0 text-center">性別を設定してください</p>
-
-
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary active">
-                <%= f.radio_button :sex, :boy %>
-                男の子
-              </label>
-              <label class="btn btn-secondary">
-                <%= f.radio_button :sex, :girl %>
-                女の子
-              </label>
-            </div>
-          </div>
-
-          <h2 class="mt-4 mb-0 text-center">生年月日<br /></h2>
-          <p class="mt-0 mb-0 text-center">生年月日を設定してください</p>
-          <div class="mt-0 mb-3 text-center">
-            <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" , :size=>"48" , placeholder: "生年月日を入力して下さい" %>
-          </div>
-
-          <div class="mt-0 mb-5 text-center">
-            <%= f.submit "登録する", class:"btn btn-secondary btn-sm btn-block mb-3"%>
-          </div>
-
-          <div class="mt-0 mb-2 text-center">
-            <%= f.submit "登録する", class:"btn btn-secondary btn-sm btn-block mb-3"%>
-          </div>
-        <% end %>
-      </div>
-    </div>
+        </td>
+      </tr>
+    </table>
   </div>
-</div>
 
+  <%= render partial: 'babies/footer' %>
+</body>

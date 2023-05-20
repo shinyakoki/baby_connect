@@ -1,5 +1,31 @@
+<header>
+  <%= form_with url: "/babies/#{@baby.id}/back_day" do |f| %>
+    <input type="hidden" name="date" value="<%= params[:date] %>">
+    <%= f.submit "戻る", class:"btn btn-secondary btn-sm btn-block mb-3"%>
+  <% end %>
+  <% unless @is_hidden %>
+    <%= form_with url: "/babies/#{@baby.id}/next_day" do |f| %>
+      <input type="hidden" name="date" value="<%= params[:date] %>">
+      <%= f.submit "進む", class:"btn btn-secondary btn-sm btn-block mb-3"%>
+    <% end %>
+  <% end %>
+
+
+</header>
+
 <h1>Babies#show</h1>
 <p>Find me in app/views/babies/show.html.erb</p>
-<%= @baby.nickname %>
+<%= @baby.nickname %>ちゃん
 <%= @baby.sex_i18n %>
+
+<% @records.each do |record| %>
+  <div>
+    <%= record.item %>
+    <%= record.date %>
+    <%= record.unit %>
+    <%= record.amount %>
+  </div>
+<% end %>
 <%= render partial: 'babies/footer' %>
+
+
