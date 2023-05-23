@@ -7,6 +7,10 @@ class ParentsController < ApplicationController
   def show
     # テーブルからレコードを1行取得。引数はid
     # @baby = Baby.find(params[:id])
+    @user = current_user
+    @babies = current_user.babies
+    # Viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する
+    @baby = Baby.new
   end
 
   def index

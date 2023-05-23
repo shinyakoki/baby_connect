@@ -1,13 +1,12 @@
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
-    body {
-      font-family: 'Yomogi', cursive;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-</head>
+  body {
+    font-family: 'Yomogi', cursive;
+    margin: 0;
+    padding: 0;
+  }
+</style>
 
 <body>
   <div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 80px);">
@@ -18,7 +17,7 @@
           <h2 class="mt-0 mb-0 text-center">ニックネーム<br /></h2>
           <p class="mt-0 mb-0 text-center">赤ちゃんのニックネームを教えてください</p>
           <div class="btn-wrapper col-10 mx-auto">
-            <%= form_for(@baby) do |f| %>
+            <%= form_with(model: @baby) do |f| %>
               <div class="mt-0 mb-3 text-center">
                 <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", :size=>"48", placeholder: "ニックネームを入力して下さい", class: "rounded-pill" %>
               </div>
@@ -54,6 +53,4 @@
       </tr>
     </table>
   </div>
-
-  <%= render partial: 'babies/footer' %>
 </body>

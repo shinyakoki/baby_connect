@@ -13,8 +13,7 @@
     <h2 style="margin: 0; color: #4682b4">赤ちゃん登録＆編集</h2>
   </header>
 
-  <div style="background-color: rgba(255, 255, 255, 1); display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 160px);">
-
+  <div style="background-color: rgba(255, 255, 255, 1); display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 40px);">
 
   <style>
     #baby-link, .baby-link {
@@ -71,14 +70,13 @@
         <tr>
           <td style="text-align: center; width: 500px; height: 50px; margin: 0 auto;">
             <div class="row baby-link">
-              <%= link_to "#{baby.nickname} (#{baby.sex} #{baby.date_of_birth})", edit_baby_path(baby.id), class: "w-100 h-75", style: "color: black;" %>
+              <%= link_to "#{baby.nickname} (#{baby.sex_i18n} #{baby.date_of_birth})", edit_baby_path(baby.id), class: "w-100 h-75", style: "color: black;" %>
             </div>
           </td>
         </tr>
       <% end %>
         <tr>
           <td style="padding: 20px; text-align: center; width: 500px; height: 300px; margin: 0 auto;">
-    
             <div class="row" id="add-baby-link">
               <p>赤ちゃん新規登録</p>
             </div>
@@ -92,8 +90,6 @@
             </script>
           </td>
         </tr>
-
     </table>
   </div>
-<%= render partial: 'babies/footer' %>
 </body>

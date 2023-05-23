@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class Users::SessionsController < Devise::SessionsController
-
+  layout 'top'
   before_action :user_state, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 

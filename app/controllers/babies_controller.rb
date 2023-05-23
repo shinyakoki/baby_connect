@@ -1,8 +1,7 @@
 class BabiesController < ApplicationController
 
   def index
-    # 保存されているデータ(タイプ)を全て取得
-    @babies = Baby.all
+    @babies = current_user.babies
     # Viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する
     @baby = Baby.new
   end
@@ -29,7 +28,9 @@ class BabiesController < ApplicationController
 
   def create
     # baby_parameter メソッドで必要な属性を取得し、その属性を持つ新しい赤ちゃんをデータベースに保存
-    Baby.create(baby_parameter)
+    @baby = Baby.new(baby_parameter)
+    @baby.user_id = current_user.id
+    @baby.save
     # 赤ちゃんの作成が完了した後に一覧ページにリダイレクト
     redirect_to babies_path
   end

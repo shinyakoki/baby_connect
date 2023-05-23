@@ -1,4 +1,4 @@
- <style>
+<style>
   @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 
   body {
@@ -14,15 +14,40 @@
   </header>
 
   <div style="background-color: rgba(255, 255, 255, 1); display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 160px);">
+
     <style>
-      #add-baby-link {
-        background-color: pink;
+      #baby-link, .baby-link {
+        background-color: white;
         height: 45px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: 3px solid pink;
         margin-bottom: 10px;
+        position: relative;
+      }
+
+      #baby-link p {
+        margin: 0;
+        color: white;
+      }
+
+      #baby-link::after {
+        content: "＞";
+        position: absolute;
+        right: 10px;
+        color: white;
+    </style>
+
+    <style>
+      #add-baby-link{
+        background-color: pink;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid pink;
+        margin-top: 15px;
         position: relative;
         border-radius: 50px;
       }
@@ -37,7 +62,6 @@
         position: absolute;
         right: 10px;
         color: white;
-      }
     </style>
 
     <style>
@@ -53,51 +77,59 @@
         border-radius: 50px;
       }
 
-      #add-withdraw-link p {
-        margin: 0;
-        color: white;
-      }
+        #add-withdraw-link p {
+          margin: 0;
+          color: white;
+        }
 
-      #add-withdraw-link::after {
-        content: "＞";
-        position: absolute;
-        right: 10px;
-        color: white;
-      }
+        #add-withdraw-link::after {
+          content: "＞";
+          position: absolute;
+          right: 10px;
+          color: white;
+        }
     </style>
 
-    <div style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 200px); padding: 100px;">
-      <table>
-        <tr>
-          <td style="padding: 20px; text-align: center; width: 500px; height: 300px; margin: 0 auto;">
-            <div class="row" id="add-baby-link">
-              <p>赤ちゃんの追加・編集</p>
-            </div>
+    <div style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 160px); padding: 100px;">
+      <table style="border: none; background-color: rgba(255, 255, 255, 0.4); border-radius: 20px">
+        <% @babies.each do |baby| %>
+          <tr>
+            <td style="text-align: center; width: 500px; height: 50px; margin: 0 auto;">
+              <div class="row baby-link">
+                <%= link_to "#{baby.nickname} (#{baby.sex_i18n} #{baby.date_of_birth})", baby_path(baby.id), class: "w-100 h-75", style: "color: black;" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+          <tr>
+            <td style="padding: 20px; text-align: center; width: 500px; height: 300px; margin: 0 auto;">
 
-            <script>
-              $(document).ready(function() {
-                $('#add-baby-link').click(function() {
-                  window.location.href = "<%= babies_path %>";
+              <div class="row" id="add-baby-link">
+                <p>赤ちゃんの追加・編集</p>
+              </div>
+
+              <script>
+                $(document).ready(function() {
+                  $('#add-baby-link').click(function() {
+                    window.location.href = "<%= babies_path(@user)%>";
+                  });
                 });
-              });
-            </script>
+              </script>
 
-            <div class="row" id="add-withdraw-link">
-              <p>退会</p>
-            </div>
+              <div class="row" id="add-withdraw-link">
+                <p>退会</p>
+              </div>
 
-            <script>
+              <script>
               $(document).ready(function() {
                 $('#add-withdraw-link').click(function() {
                   window.location.href = "<%= out_path %>";
                 });
               });
-            </script>
-          </td>
-        </tr>
+              </script>
+            </td>
+          </tr>
       </table>
     </div>
   </div>
-
-  <%= render partial: 'babies/footer' %>
 </body>

@@ -2,7 +2,7 @@ class Baby < ApplicationRecord
 
 # アソシエーションの記述
 # 各babyは1つのuser(親に)所属している。
-# belongs_to :user
+ belongs_to :user
 # ここまで
 
 has_many :records

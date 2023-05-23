@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :sharing_codes
   resources :blogs
 
-  get "/babies/:id/new_record" =>"babies#new_record"
+  get "/babies/:id/new_record" =>"babies#new_record", as: "new_record"
   post "/babies/:id/create_record" =>"babies#create_record"
   post "/babies/:id/next_day" =>"babies#next_day"
   post "/babies/:id/back_day" =>"babies#back_day"

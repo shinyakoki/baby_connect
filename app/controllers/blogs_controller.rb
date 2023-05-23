@@ -1,5 +1,4 @@
 class BlogsController < ApplicationController
-
   def index
     # 保存されているデータ(タイプ)を全て取得
     @blogs = Blog.all

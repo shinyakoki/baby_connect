@@ -7,30 +7,28 @@
     <div class="row">
       <div class='mx-auto col-sm-12 col-lg-8 col-xl-6'>
         <div class="mt-5 mb-5 text-center">
-         <h1 style="color: white; font-family: 'Yomogi', cursive;">Login</h1>
+          <h1 style="color: white; font-family: 'Yomogi', cursive;">Login</h1>
         </div>
 
         <p class="mt-4 mb-0 text-center" style="color: white; font-family: 'Yomogi', cursive;">メールアドレス</p>
         <div class="btn-wrapper col-10 mx-auto">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-          <div class="mt-0 mb-5 text-center">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "48", placeholder: "ご自身のメールアドレスを入力して下さい", class: "rounded-pill", style: "border-color: white; font-family: 'Yomogi', cursive;" %>
-          </div>
+            <div class="mt-0 mb-5 text-center">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "48", placeholder: "ご自身のメールアドレスを入力して下さい", class: "rounded-pill", style: "border-color: white; font-family: 'Yomogi', cursive;" %>
+            </div>
 
-          <p class="mt-4 mb-0 text-center" style="color: white; font-family: 'Yomogi', cursive;">パスワード</p>
-          <div class="mt-0 mb-5 text-center">
-            <%= f.password_field :password, autocomplete: "current-password" , :size=>"48" , placeholder: "ご自身のパスワードを入力して下さい", class: "rounded-pill", style: "border-color: white; font-family: 'Yomogi', cursive;" %>
-          </div>
+            <p class="mt-4 mb-0 text-center" style="color: white; font-family: 'Yomogi', cursive;">パスワード</p>
+            <div class="mt-0 mb-5 text-center">
+              <%= f.password_field :password, autocomplete: "current-password" , :size=>"48" , placeholder: "ご自身のパスワードを入力して下さい", class: "rounded-pill", style: "border-color: white; font-family: 'Yomogi', cursive;" %>
+            </div>
 
-          <div class="mt-0 mb-5 text-center">
-            <%= f.submit "送信", class:"btn btn btn-outline-info rounded-pill btn-sm btn-block mb-3", style:"width: 415px; display: inline-block; color: white; border-color: white; font-family: 'Yomogi', cursive;" %>
-          </div>
+            <div class="mt-0 mb-5 text-center">
+              <%= f.submit "送信", class: "btn btn-outline-info rounded-pill btn-sm btn-block mb-3", style: "width: 380px; display: inline-block; color: white; font-family: 'Yomogi', cursive;" %>
+            </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<%= render partial: 'homes/footer' %>
