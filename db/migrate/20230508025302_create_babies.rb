@@ -4,7 +4,7 @@ class CreateBabies < ActiveRecord::Migration[6.1]
       t.string :nickname, null: false
       t.integer :sex, null: false
       t.date :date_of_birth, null: false
-      t.references :user, null: false, foreign_key: true
+      t.integer :user_id, null: false
       t.timestamps
     end
   end

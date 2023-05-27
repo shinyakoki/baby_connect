@@ -6,7 +6,7 @@
 </style>
 
 <body>
-  <div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 0px);">
+  <div style="background-image: url('/assets/1.jpg'); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 80px);">
     <h3>本当に退会しますか？</h3>
     <table style="border: none; border-radius: 20px; padding: 20px; text-align: center; width: 300px; height: 230px;">
       <tr>
@@ -16,7 +16,7 @@
             退会する
           <% end %>
           <br>
-          <%= link_to parent_path(current_user.id), class: "btn text-center mt-4 px-2 pt-1 rounded-pill", style: "background-color: #FFC0CB; color: white;" do %>
+          <%= link_to parent_path(current_user.id), class: "btn text-center mt-4 px-2 pt-1 rounded-pill", style: "background-color: #808080; color: white;" do %>
             キャンセル
           <% end %>
         </td>
@@ -24,5 +24,6 @@
     </table>
   </div>
 </body>
+
 
 

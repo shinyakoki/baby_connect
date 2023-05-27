@@ -16,12 +16,13 @@ class BabiesController < ApplicationController
     # もしparams[:date]がnilでない場合は、to_dateメソッドでDateオブジェクトに変換
     # nilの場合は右側の式（Time.zone.today）が評価され、現在の日付が使用
     date = params[:date]&.to_date || Time.zone.today
+    params[:date] = date
     # もしdateが現在の日付よりも未来の日付であれば、baby_pathにリダイレクト
     return redirect_to baby_path if date > Time.zone.today
     # テーブルからレコードを1行取得。引数はid
     @baby = Baby.find(params[:id])
     # レコードを取得し、dateが指定した日付範囲内にあるものを@records変数に代入
-    @records = @baby.records.where(date: date.beginning_of_day..date.end_of_day)
+    @records = @baby.records.where(date: date.beginning_of_day..date.end_of_day).order('date asc')
     # @is_hidden変数に、params[:date]がnilであるか、dateが現在の日付と同じであるかの論理値を代入
     @is_hidden = params[:date].nil? || date == Time.zone.today
   end
@@ -71,15 +72,21 @@ class BabiesController < ApplicationController
     # テーブルからレコードを1行取得。引数はid
     @baby = Baby.find(params[:id])
 
+    @record = params[:format]
+
   end
 
   def create_record
     # テーブルからレコードを1行取得。引数はid
     baby = Baby.find(params[:id])
+    date = DateTime.parse(params[:user_record])
+    time_parts = params[:date].split(':').map(&:to_i)
+
+    new_date = DateTime.new(date.year, date.month, date.day, time_parts[0], time_parts[1], 00, "+0900")
     # Recordモデルの新しいインスタンスを作成し、各属性に対応する値を指定
-    Record.create(item: params[:item], amount: params[:amount], date: params[:date], unit: Record.units[:ml],baby_id: baby.id)
+    Record.create(item: params[:item], amount: params[:amount], date: new_date, unit: Record.units[:ml],baby_id: baby.id)
     # 詳細ページにリダイレクト
-    redirect_to baby_path(baby.id)
+    redirect_to baby_path(id: baby.id, date: new_date)
   end
 
   def next_day

@@ -32,6 +32,7 @@
               <% end %>
             </tbody>
           </table>
+          <%= paginate @blogs %>
 
           <%= form_with(model: @blog, local: true) do |form| %>
             <div class="title text-center">
@@ -49,7 +50,7 @@
               <%= form.datetime_select :start_time %>
             </div>
 
-            <div class="submit mt-4 text-center">
+            <div class="submit mt-3 text-center">
               <%= form.submit "登録する", style: "background-color: pink; border: 2px solid pink; border-radius: 30px; padding: 8px 15px; color: white; font-weight: bold;" %>
             </div>
           <% end %>

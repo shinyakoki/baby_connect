@@ -5,7 +5,7 @@ class CreateRecords < ActiveRecord::Migration[6.1]
       t.integer :unit
       t.integer :amount
       t.datetime :date, null: false
-      t.references :baby, null: false, foreign_key: true
+      t.integer :baby_id, null: false
       t.timestamps
     end
   end

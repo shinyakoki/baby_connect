@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2023_05_14_110742) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_babies_on_user_id"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -42,14 +41,8 @@ ActiveRecord::Schema.define(version: 2023_05_14_110742) do
 
   create_table "notifications", force: :cascade do |t|
     t.boolean "checked", default: false
-    t.integer "calendar_id", null: false
-    t.integer "visiter_id", null: false
-    t.integer "visited_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["calendar_id"], name: "index_notifications_on_calendar_id"
-    t.index ["visited_id"], name: "index_notifications_on_visited_id"
-    t.index ["visiter_id"], name: "index_notifications_on_visiter_id"
   end
 
   create_table "parents", force: :cascade do |t|
@@ -67,16 +60,11 @@ ActiveRecord::Schema.define(version: 2023_05_14_110742) do
     t.integer "baby_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["baby_id"], name: "index_records_on_baby_id"
   end
 
   create_table "shares", force: :cascade do |t|
-    t.integer "baby_id", null: false
-    t.integer "parent_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["baby_id"], name: "index_shares_on_baby_id"
-    t.index ["parent_id"], name: "index_shares_on_parent_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,12 +81,5 @@ ActiveRecord::Schema.define(version: 2023_05_14_110742) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "babies", "users"
   add_foreign_key "calendars", "babies"
-  add_foreign_key "notifications", "calendars"
-  add_foreign_key "notifications", "visiteds"
-  add_foreign_key "notifications", "visiters"
-  add_foreign_key "records", "babies"
-  add_foreign_key "shares", "babies"
-  add_foreign_key "shares", "parents"
 end

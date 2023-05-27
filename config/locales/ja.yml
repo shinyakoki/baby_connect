@@ -13,9 +13,8 @@ ja:
         girl: "女の子"
     record:
       item:
-        milk: "ミルク"
-        breast_milk: "母乳"
         meal: "ごはん"
         sleeping: "ねる"
-
+        milk: "ミルク"
+        breast_milk: "母乳"
 # ここまで

@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   def index
     # 保存されているデータ(タイプ)を全て取得
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page])
     # Viewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する
     @blog = Blog.new
   end

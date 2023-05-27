@@ -2,6 +2,10 @@
 class Users::SessionsController < Devise::SessionsController
   layout 'top'
   before_action :user_state, only: [:create]
+
+  before_action :delete_guest_data, if: :guest_user?, only: :destroy
+
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -38,6 +42,15 @@ class Users::SessionsController < Devise::SessionsController
        parent_path(current_user.id)
    end
 
+  def delete_guest_data
+    if current_user.email == 'guest@example.com'
+
+
+    Baby.where(user_id: current_user.id).destroy_all
+    Blog.destroy_all
+    end
+  end
+
    protected
    # 退会しているかを判断するメソッド
    def user_state
@@ -52,5 +65,7 @@ class Users::SessionsController < Devise::SessionsController
     end
 
    end
+
+
 end
 
