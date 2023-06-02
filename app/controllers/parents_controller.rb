@@ -27,10 +27,6 @@ class ParentsController < ApplicationController
   end
 
 
-  def create
-
-  end
-
   private
   # ストロングパラメータ
   def parent_params
