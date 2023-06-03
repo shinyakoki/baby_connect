@@ -1,8 +1,5 @@
 class ParentsController < ApplicationController
 
-  def new
-
-  end
 
   def show
     # テーブルからレコードを1行取得。引数はid
