@@ -4,6 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # validates :email, presence: true
+  # validates :password, presence: true, length: { minimum: 8, maximum: 15 }
+  # validates :password_confirmation, presence: true, length: { minimum: 8, maximum: 15 }
+
+  validates :password, format: {
+    with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i,
+    message: 'は英数字の混合である必要があります'
+  }
+
   # アソシエーションの記述
   # 1つのuser(親)が複数のbabyを持つことができる。
   has_many :babies, dependent: :destroy
