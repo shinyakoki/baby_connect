@@ -2,7 +2,13 @@
   @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
 </style>
 
-<div style="background-image: url(<%= asset_path('1.jpg') %>); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 120px);">
+<div style="background-image: url(<%= asset_path('1.jpg') %>);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: calc(100vh - 120px);">
 
   <div class="container">
     <div class="row">
@@ -22,6 +28,7 @@
                                class: "rounded-pill",
                                style: "border-color: white; font-family: 'Yomogi', cursive;"
             %>
+
             <% if resource.errors.full_messages_for(:email).any? %>
               <ul class="list-unstyled">
                 <% resource.errors.full_messages_for(:email).each do |message| %>
@@ -70,7 +77,10 @@
 
           <div class="mt-0 mb-5 text-center">
             <%= f.submit "登録する", class: "btn btn-success rounded-pill btn-sm btn-block mb-3",
-                                     style: "width: 380px; display: inline-block; color: white; font-family: 'Yomogi', cursive;"
+                                     style: "width: 380px;
+                                     display: inline-block;
+                                     color: white;
+                                     font-family: 'Yomogi', cursive;"
             %>
           </div>
         <% end %>
