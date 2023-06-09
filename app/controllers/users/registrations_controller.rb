@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  # 新規ユーザー登録ページにリダイレクトする処理
   def index
     redirect_to new_user_registration_path
   end
@@ -67,6 +68,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
+  # サインアップ後にリダイレクト先を指定
   def after_sign_up_path_for(resource)
     parent_path(current_user.id)
   end

@@ -17,10 +17,10 @@ body {
 	align-items: stretch;
 	justify-content: space-evenly;
 	overflow: hidden;
-	position: relative; 
+	position: relative;
 }
 
-body::before, 
+body::before,
 body::after {
 	content: "";
 	width: 70vmax;
@@ -33,9 +33,9 @@ body::after {
 	z-index: 1;
 	will-change: border-radius, transform;
 	transform-origin: 55% 55%;
-	pointer-events: none; 
+	pointer-events: none;
 }
-	
+
 body::after {
     width: 70vmin;
     height: 70vmin;
@@ -44,7 +44,7 @@ body::after {
     top: auto;
     bottom: 0;
     animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
-    transform-origin: 20% 20%; 
+    transform-origin: 20% 20%;
 }
 
 @-webkit-keyframes Gradient {
@@ -87,13 +87,13 @@ body::after {
   0% {
     border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
   100% {
-    border-radius: 40% 60%; } 
+    border-radius: 40% 60%; }
 }
 
 @keyframes spin {
   to {
-    transform: rotate(1turn); 
-  } 
+    transform: rotate(1turn);
+  }
 }
 	.st0{display:none;}
 	.st1{display:inline;}
@@ -111,6 +111,5 @@ body::after {
 	.st13{opacity:0.2;}
 	.st14{clip-path:url(#SVGID_16_);}
 	.st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
-	
-	
-	
+
+

@@ -4,11 +4,13 @@
 
 // 前月の日付セルの背景色を透明にする
 .simple-calendar .prev-month {
+  // rgba(0, 0, 0, 0)は完全な透明色を表す
   background-color: rgba(0, 0, 0, 0);
 }
 
 // 翌月の日付セルの背景色を透明にする
 .simple-calendar .next-month{
+  // rgba(0, 0, 0, 0)は完全な透明色を表す
   background-color: rgba(0, 0, 0, 0);
 }
 
