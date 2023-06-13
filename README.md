@@ -31,4 +31,4 @@ ER図 https://drive.google.com/file/d/1ziXX6hozL96nA7x3N5HHoEj1S-9Zxa_o/view?usp
 - IDE：Cloud9
 
 ## 使用素材
-- まだ未定です
+- まだ未定です。
