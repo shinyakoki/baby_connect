@@ -29,22 +29,6 @@ ActiveRecord::Schema.define(version: 2023_05_14_110742) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "calendars", force: :cascade do |t|
-    t.string "comment", null: false
-    t.date "start_time", null: false
-    t.date "end_time", null: false
-    t.integer "baby_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["baby_id"], name: "index_calendars_on_baby_id"
-  end
-
-  create_table "notifications", force: :cascade do |t|
-    t.boolean "checked", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "parents", force: :cascade do |t|
     t.string "email", null: false
     t.string "password", null: false
@@ -58,11 +42,6 @@ ActiveRecord::Schema.define(version: 2023_05_14_110742) do
     t.integer "amount"
     t.datetime "date", null: false
     t.integer "baby_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "shares", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -81,5 +60,4 @@ ActiveRecord::Schema.define(version: 2023_05_14_110742) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "calendars", "babies"
 end

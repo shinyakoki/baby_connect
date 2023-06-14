@@ -12,5 +12,6 @@ Kaminari.configure do |config|
   # config.max_pages = nil
   # config.params_on_first_page = false
 
+  # 1ページあたりのアイテムの表示数が2件
   config.default_per_page = 2
 end

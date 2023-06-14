@@ -16,7 +16,8 @@ class User < ApplicationRecord
   # ゲストログイン機能
    def self.guest
      find_or_create_by!(email: 'guest@example.com') do |user|
-       user.password = SecureRandom.urlsafe_base64
+      # 8文字の英数字のランダムパスワードを指定
+       user.password = SecureRandom.alphanumeric(8)
        user.name = "guest_user"
      end
    end

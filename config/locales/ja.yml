@@ -3,7 +3,7 @@ ja:
   simple_calendar:
     previous: "前月"
     next: "翌月"
-# ここまで
+
 
 # enum日本語化
   enums:
@@ -17,6 +17,5 @@ ja:
         sleeping: "ねる"
         milk: "ミルク"
         breast_milk: "母乳"
-# ここまで
 
- 
+

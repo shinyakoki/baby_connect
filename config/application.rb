@@ -20,7 +20,6 @@ module BabyConnect
     # config.eager_load_paths << Rails.root.join("extras")
 
     # シンプルカレンダーの日本語化
-    # デフォルトのlocaleを日本語(:ja)にする
     config.i18n.default_locale = :ja
 
     #　#　以下の記述を追記する(設定必須)
