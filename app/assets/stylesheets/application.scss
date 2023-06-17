@@ -17,3 +17,33 @@
  *= require_self
  */
 
+html {
+  font-size: 100%;
+}
+
+.timer {
+  font-size: 8rem;
+  text-align: center;
+}
+
+.controls {
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .timer {
+    font-size: 6rem;
+  }
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .timer {
+    font-size: 4rem;
+  }
+}

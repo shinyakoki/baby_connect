@@ -6,8 +6,11 @@ class ParentsController < ApplicationController
     @baby = Baby.new
   end
 
-  # getメソッドでoutページを表示
+
   def out
+  end
+
+  def timer
   end
 
   # 退会処理

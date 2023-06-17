@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # rootメソッドでtopアクションのviewをrootに設定
   root to: 'homes#top'
 
+  get "/timer" => "parents#timer"
   get "/out" => "parents#out"
   patch "/withdraw" => "parents#withdraw"
 
