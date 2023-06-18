@@ -1,20 +1,24 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+
+  body {
+    font-family: 'Yomogi', cursive
+  }
 </style>
 
+<!--120px=footerの高さ-->
 <div style="background-image: url(<%= asset_path('1.jpg') %>);
             background-size: cover;
             display: flex;
-            align-items: center;
             justify-content: center;
             flex-direction: column;
             min-height: calc(100vh - 120px);">
 
   <div class="container">
     <div class="row">
-      <div class='mx-auto col-sm-12 col-lg-8 col-xl-6'>
+      <div class='mx-auto col-lg-8 col-md-8 col-6'>
         <div class="mt-5 mb-5 text-center">
-          <h1 style="color: white; font-family: 'Yomogi', cursive;">Login</h1>
+          <h1 style="color: white;">Login</h1>
         </div>
 
         <div class="btn-wrapper col-10 mx-auto">
@@ -25,7 +29,7 @@
               </div>
             <% end %>
 
-            <p class="mt-4 mb-0 text-center" style="color: black; font-family: 'Yomogi', cursive;">メールアドレス</p>
+            <p class="mt-4 mb-0 text-center" style="color: black;">メールアドレス</p>
             <div class="mt-0 mb-5 text-center">
               <%= f.email_field :email,
                                  autofocus: true,
@@ -34,11 +38,11 @@
                                  size: "48",
                                  placeholder: "ご自身のメールアドレスを入力して下さい",
                                  class: "rounded-pill",
-                                 style: "border-color: white; font-family: 'Yomogi', cursive;"
+                                 style: "border-color: white;"
               %>
             </div>
 
-            <p class="mt-4 mb-0 text-center" style="color: black; font-family: 'Yomogi', cursive;">パスワード</p>
+            <p class="mt-4 mb-0 text-center" style="color: black;">パスワード</p>
             <div class="mt-0 mb-5 text-center">
               <%= f.password_field :password,
                                     required: true,
@@ -46,7 +50,7 @@
                                     :size=>"48",
                                     placeholder: "ご自身のパスワードを入力して下さい",
                                     class: "rounded-pill",
-                                    style: "border-color: white; font-family: 'Yomogi', cursive;"
+                                    style: "border-color: white;"
               %>
             </div>
 
@@ -54,8 +58,7 @@
               <%= f.submit "送信", class: "btn btn-primary rounded-pill btn-sm btn-block mb-3",
                                    style: "width: 380px;
                                    display: inline-block;
-                                   color: white;
-                                   font-family: 'Yomogi', cursive;"
+                                   color: white;"
               %>
             </div>
           <% end %>
