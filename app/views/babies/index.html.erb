@@ -3,93 +3,102 @@
 
   body {
     font-family: 'Yomogi', cursive;
+  }
+
+  #baby-link, .baby-link {
+    background-color: white;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid pink;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  #baby-link p {
     margin: 0;
-    padding: 0;
+    color: white;
+  }
+
+  #baby-link::after {
+    content: "＞";
+    position: absolute;
+    right: 10px;
+    color: white;
+  }
+
+  #add-baby-link{
+    background-color: pink;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid pink;
+    margin-top: 15px;
+    position: relative;
+    border-radius: 50px;
+  }
+
+  #add-baby-link p {
+    margin: 0;
+    color: white;
+  }
+
+  #add-baby-link::after {
+    content: "＞";
+    position: absolute;
+    right: 10px;
+    color: white;
   }
 </style>
-
-<body>
-  <header style="width: 100%; height: 80px; background-image: url(<%= asset_path('1.jpg') %>); display: flex; justify-content: center; align-items: center;">
+  <header style="width: 100%;
+                 height: 80px;
+                 background-image: url(<%= asset_path('1.jpg') %>);
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;">
     <h2 style="margin: 0; color: #4682b4">赤ちゃん登録＆編集</h2>
   </header>
 
-  <div style="background-color: rgba(255, 255, 255, 1); display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 40px);">
+  <!--160px=headerとfooterの高さの合計-->
+  <div style="background-color: rgba(255, 255, 255, 1);
+              display: flex;
+              justify-content: center;
+              flex-direction: column;
+              min-height: calc(100vh - 160px);">
 
-  <style>
-    #baby-link, .baby-link {
-      background-color: white;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid pink;
-      margin-bottom: 10px;
-      position: relative;
-    }
+    <div style="display: flex;
+                justify-content: center;
+                height: calc(100vh - 200px); padding: 100px;">
 
-    #baby-link p {
-      margin: 0;
-      color: white;
-    }
+      <table style="border: none; background-color: rgba(255, 255, 255, 0.4); border-radius: 20px">
+        <% @babies.each do |baby| %>
+          <tr>
+            <td style="text-align: center; width: 500px; height: 50px; margin: 0 auto;">
+              <div class="row baby-link">
+                <%= link_to "#{baby.nickname} (#{baby.sex_i18n} #{baby.date_of_birth})", edit_baby_path(baby.id),
+                    class: "w-100 h-75", style: "color: black;"
+                %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+          <tr>
+            <td style="padding: 20px; text-align: center; width: 500px; height: 300px; margin: 0 auto;">
+              <div class="row" id="add-baby-link">
+                <p>赤ちゃん新規登録</p>
+              </div>
 
-    #baby-link::after {
-      content: "＞";
-      position: absolute;
-      right: 10px;
-      color: white;
-  </style>
-
-  <style>
-    #add-baby-link{
-      background-color: pink;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid pink;
-      margin-top: 15px;
-      position: relative;
-      border-radius: 50px;
-    }
-
-    #add-baby-link p {
-      margin: 0;
-      color: white;
-    }
-
-    #add-baby-link::after {
-      content: "＞";
-      position: absolute;
-      right: 10px;
-      color: white;
-  </style>
-
-  <div style="display: flex; justify-content: center; align-items: center; height: calc(100vh - 200px); padding: 100px;">
-    <table style="border: none; background-color: rgba(255, 255, 255, 0.4); border-radius: 20px">
-      <% @babies.each do |baby| %>
-        <tr>
-          <td style="text-align: center; width: 500px; height: 50px; margin: 0 auto;">
-            <div class="row baby-link">
-              <%= link_to "#{baby.nickname} (#{baby.sex_i18n} #{baby.date_of_birth})", edit_baby_path(baby.id), class: "w-100 h-75", style: "color: black;" %>
-            </div>
-          </td>
-        </tr>
-      <% end %>
-        <tr>
-          <td style="padding: 20px; text-align: center; width: 500px; height: 300px; margin: 0 auto;">
-            <div class="row" id="add-baby-link">
-              <p>赤ちゃん新規登録</p>
-            </div>
-
-            <script>
-              $(document).ready(function() {
-                $('#add-baby-link').click(function() {
-                  window.location.href = "<%= new_baby_path %>";
+              <script>
+                $(document).ready(function() {
+                  $('#add-baby-link').click(function() {
+                    window.location.href = "<%= new_baby_path %>";
+                  });
                 });
-              });
-            </script>
-          </td>
-        </tr>
-    </table>
+              </script>
+            </td>
+          </tr>
+      </table>
+    </div>
   </div>
-</body>

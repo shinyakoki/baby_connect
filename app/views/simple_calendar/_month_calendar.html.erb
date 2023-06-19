@@ -8,9 +8,12 @@
   <table class="table table-striped" style="width: 100%;">
     <thead>
       <tr>
+        <!--(0, 7)=スライスされる最初の要素が0、最後の要素が7-->
         <% date_range.slice(0, 7).each do |day| %>
+          <!--6=土曜日-->
           <% if day.wday == 6 %>
             <th class="saturday"><%= t('date.abbr_day_names')[day.wday] %></th>
+          <!--6=日曜日-->
           <% elsif day.wday == 0 %>
             <th class="sunday"><%= t('date.abbr_day_names')[day.wday] %></th>
           <% else %>
@@ -21,6 +24,7 @@
     </thead>
 
     <tbody>
+      <!--(7)=7日ごとにスライスしてweekに代入-->
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>

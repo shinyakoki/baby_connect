@@ -1,7 +1,7 @@
 class Baby < ApplicationRecord
 
 # 各babyは1つのuser(親に)所属している。
- belongs_to :user
+belongs_to :user
 
 # 1つのbaby(赤ちゃん)が複数のrecordsを持つことができる
 has_many :records

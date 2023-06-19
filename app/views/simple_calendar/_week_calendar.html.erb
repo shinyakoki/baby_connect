@@ -1,6 +1,7 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+    <!--1=カレンダー内の週の数-->
     <% if calendar.number_of_weeks == 1 %>
       <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %></span>
     <% else %>
@@ -12,6 +13,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <!--(0, 7)=スライスされる最初の要素が0、最後の要素が7-->
         <% date_range.slice(0, 7).each do |day| %>
           <th><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
@@ -19,6 +21,7 @@
     </thead>
 
     <tbody>
+      <!--(7)=配列を7つの要素ごとに分割-->
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>

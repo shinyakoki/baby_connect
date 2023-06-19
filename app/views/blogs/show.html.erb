@@ -4,14 +4,21 @@
     font-family: 'Yomogi', cursive;
   }
   </style>
-<body>
-<div style="background-image: url(<%= asset_path('1.jpg') %>); background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: calc(100vh - 80px);">
+
+<!--80px=footerの高さ-->
+<div style="background-image: url(<%= asset_path('1.jpg') %>);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: calc(100vh - 80px);">
+
   <table style="border: none; border-radius: 20px; max-width: 100%; background-color: rgba(255, 255, 255, 0.8);">
       <h2>投稿内容</h2>
       <td style="padding: 20px; text-align: center; width: 500px; height: 400px; font-family: 'Yomogi', cursive;">
         <table class="table" style="max-width: 100%;">
             <thead class="rounded-circle" style="background-color: #ffc0cb;">
-
               <tr>
                 <th style="color: white;">タイトル</th>
                 <th style="color: white;">内容</th>
@@ -34,16 +41,28 @@
         </table>
 
         <br>
-        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-          <%= link_to edit_blog_path(@blog), class: "btn btn-info text-center px-1 pt-2 rounded-pill", style: "color: white; width: 120px; white-space: nowrap;" do %>
+        <div style="display: flex;
+                    justify-content: space-between;
+                    margin-top: 10px;">
+
+          <%= link_to edit_blog_path(@blog), class: "btn btn-info text-center px-1 pt-2 rounded-pill",
+                                             style: "color: white; width: 120px; white-space: nowrap;" do
+          %>
             投稿を編集する
           <% end %>
 
-          <%= link_to blog_path(@blog.id), class: "btn btn-danger text-center px-1 pt-2 rounded-pill", style: "color: white; width: 120px; white-space: nowrap;", method: :delete, data: { confirm: '本当に削除しますか?' } do %>
+          <%= link_to blog_path(@blog.id), class: "btn btn-danger text-center px-1 pt-2 rounded-pill",
+                                           style: "color: white;
+                                                   width: 120px;
+                                                   white-space: nowrap;",
+                                                   method: :delete, data: { confirm: '本当に削除しますか?' } do
+          %>
             投稿を削除する
           <% end %>
 
-          <%= link_to blogs_path, class: "btn btn-secondary text-center px-4 pt-2 rounded-pill", style: "color: white; width: 120px; white-space: nowrap;" do %>
+          <%= link_to blogs_path, class: "btn btn-secondary text-center px-4 pt-2 rounded-pill",
+                                  style: "color: white; width: 120px; white-space: nowrap;" do
+          %>
             戻る
           <% end %>
         </div>
@@ -51,4 +70,3 @@
     </tr>
   </table>
 </div>
-</body>

@@ -6,8 +6,13 @@
   }
 </style>
 
-<body>
-  <header style="width: 100%; height: 80px; background-image: url(<%= asset_path('1.jpg') %>); display: flex; justify-content: center; align-items: center;">
+  <header style="width: 100%;
+                 height: 80px;
+                 background-image: url(<%= asset_path('1.jpg') %>);
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;">
+
     <h2 style="margin: 0; color: #4682b4">カレンダー</h2>
   </header>
 
@@ -51,7 +56,13 @@
             </div>
 
             <div class="submit mt-3 text-center">
-              <%= form.submit "登録する", style: "background-color: pink; border: 2px solid pink; border-radius: 30px; padding: 8px 15px; color: white; font-weight: bold;" %>
+              <%= form.submit "登録する", style: "background-color: pink;
+                                                  border: 2px solid pink;
+                                                  border-radius: 30px;
+                                                  padding: 8px 15px;
+                                                  color: white;
+                                                  font-weight: bold;"
+              %>
             </div>
           <% end %>
         </div>
@@ -70,4 +81,3 @@
       </div>
     </div>
   </div>
-</body>
