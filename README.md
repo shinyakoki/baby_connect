@@ -18,10 +18,14 @@ BabyConnectを通して記録をつけて成長を見守り<br>
 ### 主な利用シーン
 ・赤ちゃんの日常生活の様子を記録する時<br>
 ・カレンダーに予防接種などの用事、イベントを追加したい時<br>
+・授乳などの時間をタイマーを使用して計測したい時
 
 ## 設計書
-ER図 https://drive.google.com/file/d/1ziXX6hozL96nA7x3N5HHoEj1S-9Zxa_o/view?usp=sharing<br>
-ワイヤーフレーム https://www.figma.com/file/y1yYzRNBonyxrj1Tr9ZHiB/BabyConnect?node-id=0%3A1&t=2aceMw701O6074Ml-1<br>
+- ER図 https://drive.google.com/file/d/1ziXX6hozL96nA7x3N5HHoEj1S-9Zxa_o/view?usp=sharing<br>
+- ワイヤーフレーム https://www.figma.com/file/y1yYzRNBonyxrj1Tr9ZHiB/BabyConnect?node-id=0%3A1&t=2aceMw701O6074Ml-1<br>
+- テーブル定義書 https://docs.google.com/spreadsheets/d/1KfwYFa9cnUCNEFCt2ivzU59uPPZ9VX2hpEGZC5BoQJ0/edit?usp=sharing
+- アプリケーション詳細設計書 https://docs.google.com/spreadsheets/d/1OEFPSBJN2gFcblSWeyHsxnmEd0ZWGiS30M8qscz_iuo/edit?usp=sharing
+
 ## 開発環境
 - OS：Linux(AmazonLinux2)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
