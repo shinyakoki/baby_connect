@@ -20,9 +20,7 @@ Rails.application.routes.draw do
   patch "/withdraw" => "parents#withdraw"
 
   resources :babies
-  resources :calendars
-  resources :parents
-  resources :sharing_codes
+  resources :parents, only: [:show]
   resources :blogs
 
   get "/babies/:id/new_record" => "babies#new_record", as: "new_record"
