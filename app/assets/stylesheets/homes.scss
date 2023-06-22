@@ -104,4 +104,42 @@ body::after {
 	.st14{clip-path:url(#SVGID_16_);}
 	.st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
 
+// .htmlの記述ここから
+.custom-container {
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: calc(100vh - 120px);
+}
+
+.custom-heading-1 {
+  font-size: 70px;
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.custom-heading-2 {
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+.custom-button {
+  text-align: center;
+  color: black;
+  margin-bottom: 0;
+}
+
+.footer-text1 {
+	text-aligin: center;
+}
+
+.footer-text2 {
+	text-aligin: center;
+}
+
+
 

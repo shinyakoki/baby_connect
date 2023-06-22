@@ -17,6 +17,12 @@
  *= require_self
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+
+body {
+  font-family: 'Yomogi', cursive;
+}
+
 html {
   font-size: 100%;
 }
@@ -32,18 +38,30 @@ html {
 }
 
 
-/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
-
-
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
+/* デスクトップPCなどの中サイズモニタ（960px）以下の際に適用される設定 */
+@media screen and (max-width:960px) {
   .timer {
     font-size: 6rem;
   }
 }
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
-@media screen and (max-width:425px) {
+
+/* ノートPCなどの中サイズモニタ（720px）以下の際に適用される設定 */
+@media screen and (max-width:720px) {
   .timer {
     font-size: 4rem;
   }
 }
+
+/* タブレットなどの中サイズモニタ（540px）以下の際に適用される設定 */
+// topページ
+@media screen and (max-width:540px) {
+  .custom-heading-1 {
+    font-size: 3rem;
+  }
+
+  .footer-text1 {
+    font-size: 11px;
+  }
+}
+
+

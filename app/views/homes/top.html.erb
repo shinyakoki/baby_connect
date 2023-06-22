@@ -1,65 +1,38 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+<div class="custom-container">
+  <div>
+    <h1 class="custom-heading-1">welcome to BabyConnect</h1>
+  </div>
 
-  body {
-    font-family: 'Yomogi', cursive
-  }
-</style>
+  <div>
+    <h1 class="custom-heading-2">
+      BabyConnectは赤ちゃんの日常生活を<br>
+      記録したりカレンダーに予定などを<br>
+      メモできるログアプリです
+    </h1>
+  </div>
 
-<!--120px=footerの高さ-->
-<div style="background-image: url(<%= asset_path('1.jpg') %>);
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            min-height: calc(100vh - 120px);">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
+      <% if user_signed_in? %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete,
+                      class: "btn btn-danger rounded-pill btn-sm btn-block text-white" %>
+      <% else %>
+        <p class="custom-button">2回目以降はこちら</p>
+        <%= link_to 'Login', new_user_session_path,
+                      class: "btn btn-primary rounded-pill btn-sm btn-block text-white" %>
+      <% end %>
+    </div>
 
-  <h1 style="font-size: 70px;
-             text-align: center;
-             color: white;
-             margin-bottom: 2rem">
-             welcome to BabyConnect</h1>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
+      <p class="custom-button">ゲストの方はこちら</p>
+      <%= link_to 'ゲストLogin', users_guest_sign_in_path, method: :post,
+                    class: "btn btn-info rounded-pill btn-sm btn-block text-white" %>
+    </div>
 
-  <h1 style="font-size: 20px;
-             text-align: center;
-             color: black;
-             margin-bottom: 2rem;
-             font-family: 'Yomogi', cursive;">
-             BabyConnectは赤ちゃんの日常生活を記録したり<br>カレンダーに予定などをメモできるログアプリです</h1>
-
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-4 col-md-4 col-3 text-center mt-2">
-        <% if user_signed_in? %>
-          <%= link_to 'Logout', destroy_user_session_path,
-                                method: :delete,
-                                class: "btn btn-danger rounded-pill btn-sm btn-block text-white"
-          %>
-        <% else %>
-          <p style="color: black;, cursive; margin-bottom: 0;">2回目以降はこちら</p>
-          <%= link_to 'Login', new_user_session_path,
-                               class: "btn btn-primary rounded-pill btn-sm btn-block text-white",
-                               style: "cursive; margin-top: 0;"
-          %>
-        <% end %>
-      </div>
-
-      <div class="col-lg-4 col-md-4 col-3 text-center mt-2">
-        <p style="color: black; margin-bottom: 0;">ゲストの方はこちら</p>
-        <%= link_to 'ゲストLogin', users_guest_sign_in_path,
-                                   method: :post,
-                                   class: "btn btn-info rounded-pill btn-sm btn-block text-white",
-                                   style: "cursive; margin-top: 0;"
-        %>
-      </div>
-
-      <div class="col-lg-4 col-md-4 col-3 text-center mt-2">
-        <p style="color: black;, cursive; margin-bottom: 0;">初めての方はこちら</p>
-        <%= link_to 'Sign up', new_user_registration_path,
-                               class: "btn btn-success rounded-pill btn-sm btn-block text-white",
-                               style: "cursive; margin-top: 0;"
-        %>
-      </div>
+    <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
+      <p class="custom-button">初めての方はこちら</p>
+      <%= link_to 'Sign up', new_user_registration_path,
+                    class: "btn btn-success rounded-pill btn-sm btn-block text-white" %>
     </div>
   </div>
 </div>
