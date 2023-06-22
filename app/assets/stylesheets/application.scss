@@ -64,8 +64,16 @@ html {
   }
   
   input[type="email"] {
-      width: 200px;
+      width: 270px;
     }
+    
+  input[type="password"] {
+      width: 270px;
+    } 
+    
+  input[type="password_confirmation"] {
+      width: 270px;
+    }    
 }
 
 
