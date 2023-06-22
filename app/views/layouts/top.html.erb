@@ -15,12 +15,13 @@
     <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
-  <body>
-    <div style="background-image: url(<%= asset_path('1.jpg') %>);">
-      <div class="container">
+    <body>
+      <main>
         <%= yield %>
-      </div>
-    </div>
+      </main>
+      
+      <footer>
       <%= render partial: 'homes/footer' %>
-  </body>
+      </footer>
+    </body>  
 </html>
