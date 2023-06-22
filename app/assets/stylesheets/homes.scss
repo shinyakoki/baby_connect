@@ -104,7 +104,6 @@ body::after {
 	.st14{clip-path:url(#SVGID_16_);}
 	.st15{opacity:0.3;fill:#FFFFFF;enable-background:new    ;}
 
-// .htmlの記述ここから
 .custom-container {
   background-size: cover;
   display: flex;
@@ -117,14 +116,14 @@ body::after {
   font-size: 70px;
   text-align: center;
   color: white;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 .custom-heading-2 {
   font-size: 20px;
   text-align: center;
   color: black;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 .custom-button {
@@ -133,6 +132,7 @@ body::after {
   margin-bottom: 0;
 }
 
+// topページのfooter
 .footer-text1 {
 	text-aligin: center;
 }

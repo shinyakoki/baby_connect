@@ -1,93 +1,76 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+<div class="custom-container">
+  <div>
+    <h1 class="custom-heading-3">Sign up</h1>
+  </div>
 
-  body {
-    font-family: 'Yomogi', cursive
-  }
-</style>
+  <div class="form">
+    <%= form_with(model: resource, local: true, url: registration_path(resource_name), method: :post) do |f| %>
+      <p class="mt-0 mb-0 text-center">メールアドレス</p>
+      <div class="mt-0 mb-5 text-center">
+        <%= f.email_field :email,
+                           autofocus: true,
+                           required: true,
+                           autocomplete: "email",
+                           size: "35",
+                           placeholder: "メールアドレスを入力して下さい",
+                           class: "rounded-pill",
+                           style: "border-color: white;"
+        %>
 
-<!--120px=footerの高さ-->
-<div style="background-image: url(<%= asset_path('1.jpg') %>);
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            min-height: calc(100vh - 120px);">
-
-  <div class="container">
-    <div class="row">
-      <div class="mx-auto col-lg-12 col-md-8 col-6">
-        <div class="mt-5 mb-3 text-center">
-          <h1 style="color: white;">Sign up</h1>
-        </div>
-        <%= form_with(model: resource, local: true, url: registration_path(resource_name), method: :post) do |f| %>
-          <p class="mt-0 mb-0 text-center" style="color: black;">メールアドレス</p>
-          <div class="mt-0 mb-5 text-center">
-            <%= f.email_field :email,
-                               autofocus: true,
-                               required: true,
-                               autocomplete: "email",
-                               size: "48",
-                               placeholder: "ご自身のメールアドレスを入力して下さい",
-                               class: "rounded-pill",
-                               style: "border-color: white;"
-            %>
-
-            <% if resource.errors.full_messages_for(:email).any? %>
-              <ul class="list-unstyled">
-                <% resource.errors.full_messages_for(:email).each do |message| %>
-                  <li class="text-danger"><small><%= message %></small></li>
-                <% end %>
-              </ul>
+        <% if resource.errors.full_messages_for(:email).any? %>
+          <ul class="list-unstyled">
+            <% resource.errors.full_messages_for(:email).each do |message| %>
+              <li class="text-danger"><small><%= message %></small></li>
             <% end %>
-          </div>
-
-          <p class="mt-0 mb-0 text-center" style="color: black;">パスワード</p>
-          <div class="mt-0 mb-5 text-center">
-            <%= f.password_field :password,
-                                 required: true,
-                                 autocomplete: "current-password",
-                                 size: "48",
-                                 placeholder: "半角英数字混在で8〜15文字で入力して下さい",
-                                 class: "rounded-pill",
-                                 style: "border-color: white;"
-            %>
-            <% if resource.errors.full_messages_for(:password).any? %>
-              <ul class="list-unstyled">
-                <% resource.errors.full_messages_for(:password).each do |message| %>
-                  <li class="text-danger"><small><%= message %></small></li>
-                <% end %>
-              </ul>
-            <% end %>
-          </div>
-
-          <p class="mt-0 mb-0 text-center" style="color: black;">パスワード確認</p>
-          <div class="mt-0 mb-5 text-center">
-            <%= f.password_field :password_confirmation,
-                                  required: true,
-                                  autocomplete: "current-password",
-                                  size: "48", placeholder: "もう一度パスワードを入力して下さい",
-                                  class: "rounded-pill",
-                                  style: "border-color: white;"
-            %>
-            <% if resource.errors.full_messages_for(:password_confirmation).any? %>
-              <ul class="list-unstyled">
-                <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
-                  <li class="text-danger"><small><%= message %></small></li>
-                <% end %>
-              </ul>
-            <% end %>
-          </div>
-
-          <div class="mt-0 mb-5 text-center">
-            <%= f.submit "登録する", class: "btn btn-success rounded-pill btn-sm btn-block mb-3",
-                                     style: "width: 380px;
-                                     display: inline-block;
-                                     color: white;"
-            %>
-          </div>
+          </ul>
         <% end %>
       </div>
-    </div>
+
+      <p class="mt-0 mb-0 text-center">パスワード</p>
+      <div class="mt-0 mb-5 text-center">
+        <%= f.password_field :password,
+                             required: true,
+                             autocomplete: "current-password",
+                             size: "36",
+                             placeholder: "半角英数字8〜15文字で入力して下さい",
+                             class: "rounded-pill",
+                             style: "border-color: white;"
+        %>
+        <% if resource.errors.full_messages_for(:password).any? %>
+          <ul class="list-unstyled">
+            <% resource.errors.full_messages_for(:password).each do |message| %>
+              <li class="text-danger"><small><%= message %></small></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+      <p class="mt-0 mb-0 text-center">パスワード確認</p>
+      <div class="mt-0 mb-5 text-center">
+        <%= f.password_field :password_confirmation,
+                              required: true,
+                              autocomplete: "current-password",
+                              size: "35",
+                              placeholder: "もう一度パスワードを入力して下さい",
+                              class: "rounded-pill",
+                              style: "border-color: white;"
+        %>
+        <% if resource.errors.full_messages_for(:password_confirmation).any? %>
+          <ul class="list-unstyled">
+            <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+              <li class="text-danger"><small><%= message %></small></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+      <div class="mt-0 mb-5 text-center">
+        <%= f.submit "登録する", class: "btn btn-success rounded-pill btn-sm btn-block mb-3",
+                                 style: "width: 290px;
+                                         display: inline-block;
+                                         color: white;"
+        %>
+      </div>
+    <% end %>
   </div>
 </div>
