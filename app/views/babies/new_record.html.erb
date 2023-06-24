@@ -1,72 +1,55 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+<div class="babies-newrecord-main">
+  <table class="custom-table1">
+    <tr>
+      <h2>今日の記録</h2>
+      <td class="custom-td3">
+        <p class="mt-0 mb-0 text-center">記録する内容を選択して下さい</p>
+        <div class="btn-wrapper col-10 mx-auto">
+          <%= form_with url: "/babies/#{@baby.id}/create_record" do |f| %>
+            <div class="row">
+              <div class="col-sm-6 mx-auto mb-3">
+                <%= f.select :item,
+                              Record.items_i18n.keys.map{|k| [I18n.t("enums.record.item.#{k}"), k]}, {},
+                              class: "form-control rounded-pill",
+                              style: "width: 10rem; margin-left: auto; margin-right: auto;",
+                              onchange: "toggleAmountField(this)"
+                %>
+              </div>
+            </div>
 
-  body {
-    font-family: 'Yomogi', cursive;
-  }
-</style>
-
-  <!--80px=footerの高さ-->
-  <div style="background-image: url(<%= asset_path('1.jpg') %>);
-              background-size: cover;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-direction: column;
-              min-height: calc(100vh - 80px);">
-
-    <table style="border: none;
-                  border-radius: 20px;
-                  max-width: 100%;
-                  background-color: rgba(255, 255, 255, 0.8);">
-      <tr>
-        <h2>今日の記録</h2>
-        <td style="padding: 20px; text-align: center; width: 500px; height: 430px;">
-          <p class="mt-0 mb-0 text-center">記録する内容を選択して下さい</p>
-          <div class="btn-wrapper col-10 mx-auto">
-            <%= form_with url: "/babies/#{@baby.id}/create_record" do |f| %>
+            <div class="row">
+              <div class="mt-0 mb-3 mx-auto" id="amountField" style="display: none;">
+                <%= f.text_field :amount,
+                                  autofocus: true,
+                                  autocomplete: "amount",
+                                  size: "20",
+                                  placeholder: "量を入力して下さい",
+                                  class: "rounded-pill",
+                                  style: "border-color: white; margin-left: auto; margin-right: auto;"
+                %> ml
+              </div>
+            </div>
+              <div class="mt-0">
+                <p class="mt-0 mb-0">時間を選択して下さい</p>
+              </div>
               <div class="row">
-                <div class="col-sm-6 mx-auto mb-3">
-                  <%= f.select :item,
-                                Record.items_i18n.keys.map{|k| [I18n.t("enums.record.item.#{k}"), k]}, {},
-                                class: "form-control rounded-pill", style: "width: 10rem;", onchange: "toggleAmountField(this)"
-                  %>
+                <div class="col-sm-6col-8 mx-auto mb-3">
+                  <%= f.time_field :date, autofocus: true, autocomplete: "date", class: "form-control rounded-pill" %>
+                  <%= f.hidden_field :user_record, :value => @record %>
                 </div>
               </div>
 
-              <div class="row">
-                <div class="mt-0 mb-3 mx-auto" id="amountField" style="display: none;">
-                  <%= f.text_field :amount,
-                                    autofocus: true,
-                                    autocomplete: "amount",
-                                    size: "20",
-                                    placeholder: "量を入力して下さい",
-                                    class: "rounded-pill",
-                                    style: "border-color: white;"
-                  %> ml
-                </div>
-              </div>
-                <div class="mt-0">
-                  <p class="mt-0 mb-0">時間を選択して下さい</p>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6 mx-auto mb-3">
-                    <%= f.time_field :date, autofocus: true, autocomplete: "date", class: "form-control rounded-pill" %>
-                    <%= f.hidden_field :user_record, :value => @record %>
-                  </div>
-                </div>
-
-              <div class="row">
-              <div class="col-sm-6 mx-auto mt-3 mb-5">
-                <%= f.submit "登録する", class:"btn btn-info btn-sm btn-block rounded-pill mb-1"%>
-              </div>
-              </div>
-            <% end %>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div>
+            <div class="row">
+            <div class="col-sm-6 col-8 mx-auto mt-3 mb-5">
+              <%= f.submit "登録する", class:"btn btn-info btn-sm btn-block rounded-pill mb-1"%>
+            </div>
+            </div>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
 
 <script>
   function toggleAmountField(select) {

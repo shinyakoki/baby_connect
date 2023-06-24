@@ -16,9 +16,9 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= yield %>
-    </div>
-      <%= render partial: 'babies/footer' %>
+    <%= yield %>
+      <footer>
+        <%= render partial: 'babies/footer' %>
+      </footer>
   </body>
 </html>

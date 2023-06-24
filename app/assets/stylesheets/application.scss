@@ -62,18 +62,25 @@ html {
   .footer-text1 {
     font-size: 11px;
   }
-  
+
   input[type="email"] {
       width: 270px;
     }
-    
+
   input[type="password"] {
       width: 270px;
-    } 
-    
+    }
+
   input[type="password_confirmation"] {
       width: 270px;
-    }    
+    }
+
+  .custom-table tr,
+  .custom-table td {
+    display: block;
+    width: 300px;
+  }
+  .custom-td1 {
+    text-align: center;
+  }
 }
-
-

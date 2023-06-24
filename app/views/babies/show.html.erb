@@ -1,23 +1,11 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
-
-  body {
-    font-family: 'Yomogi', cursive;
-  }
-</style>
-
-<header style="width: 100%;
-               height: 80px;
-               background-image: url(<%= asset_path('1.jpg') %>);"
-               class="px-5">
-
+<header class="babies-header1 px-5">
   <div class="row justify-content-between align-items-end">
     <%= form_with url: "/babies/#{@baby.id}/back_day" do |f| %>
       <input type="hidden" name="date" value="<%= params[:date] %>">
       <%= f.submit "＜", class:"btn btn-secondary btn-sm mb-3"%>
     <% end %>
 
-    <h3 class="mx-auto pb-1" style="margin: 0; color: #4682b4; text-align: center;">
+    <h3 class="header-text1 mx-auto pb-1">
       <%= @baby.nickname %>ちゃん<br>
       <%= params[:date] %>
     </h3>
@@ -31,7 +19,7 @@
   </div>
 </header>
 
-<main class="row flex-grow-1">
+<div class="row">
   <!--160px=headerとfooterの高さの合計-->
   <div class="col-3" style="background-color: pink; min-height: calc(100vh - 160px);"></div>
     <!--160px=headerとfooterの高さの合計-->
@@ -58,4 +46,4 @@
     </div>
   <!--160px=headerとfooterの高さの合計-->
   <div class="col-3" style="background-color: pink; min-height: calc(100vh - 160px);"></div>
-</main>
+</div>

@@ -1,144 +1,48 @@
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
-    body {
-      font-family: 'Yomogi', cursive;
-      margin: 0;
-      padding: 0;
-    }
+<header>
+  <h2 class="parents-header">マイページ</h2>
+</header>
 
-    #baby-link, .baby-link {
-      background-color: white;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid pink;
-      margin-bottom: 10px;
-      position: relative;
-    }
+<div class="parents-show-main">
+  <div class="parents-show-main1">
+    <table class="custom-table">
+      <% @babies.each do |baby| %>
+        <tr>
+          <td class="custom-td">
+            <div class="baby-link">
+              <%= link_to "#{baby.nickname} (#{baby.sex_i18n} #{baby.date_of_birth})", baby_path(baby.id),
+                  class: "w-100 h-75", style: "color: black;"
+              %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      <tr>
+        <td class="custom-td1">
+          <div class="row" id="add-baby-link">
+            <p>赤ちゃんの追加・編集</p>
+          </div>
 
-    #baby-link p {
-      margin: 0;
-      color: white;
-    }
-
-    #baby-link::after {
-      content: "＞";
-      position: absolute;
-      right: 10px;
-      color: white;
-    }
-
-    #add-baby-link{
-      background-color: pink;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid pink;
-      margin-top: 15px;
-      position: relative;
-      border-radius: 50px;
-    }
-
-    #add-baby-link p {
-      margin: 0;
-      color: white;
-    }
-
-    #add-baby-link::after {
-      content: "＞";
-      position: absolute;
-      right: 10px;
-      color: white;
-    }
-
-    #add-withdraw-link {
-      background-color: pink;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid pink;
-      margin-top: 15px;
-      position: relative;
-      border-radius: 50px;
-    }
-
-    #add-withdraw-link p {
-      margin: 0;
-      color: white;
-    }
-
-    #add-withdraw-link::after {
-      content: "＞";
-      position: absolute;
-      right: 10px;
-      color: white;
-    }
-  </style>
-
-  <header style="width: 100%;
-                 height: 80px;
-                 background-image: url(<%= asset_path('1.jpg') %>);
-                 display: flex;
-                 justify-content: center;
-                 align-items: center;">
-
-    <h2 style="margin: 0; color: #4682b4">マイページ</h2>
-  </header>
-
-  <!--160px=headerとfooterの高さの合計-->
-  <div style="background-color: rgba(255, 255, 255, 1);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-direction: column;
-              min-height: calc(100vh - 160px);">
-
-    <div style="display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 100px;">
-
-      <table style="border: none; background-color: rgba(255, 255, 255, 0.4); border-radius: 20px">
-        <% @babies.each do |baby| %>
-          <tr>
-            <td style="text-align: center; width: 500px; height: 50px; margin: 0 auto;">
-              <div class="row baby-link">
-                <%= link_to "#{baby.nickname} (#{baby.sex_i18n} #{baby.date_of_birth})", baby_path(baby.id), class: "w-100 h-75", style: "color: black;" %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-          <tr>
-            <td style="padding: 20px; text-align: center; width: 500px; height: 300px; margin: 0 auto;">
-
-              <div class="row" id="add-baby-link">
-                <p>赤ちゃんの追加・編集</p>
-              </div>
-
-              <script>
-                $(document).ready(function() {
-                  $('#add-baby-link').click(function() {
-                    window.location.href = "<%= babies_path(@user)%>";
-                  });
-                });
-              </script>
-
-              <div class="row" id="add-withdraw-link">
-                <p>退会</p>
-              </div>
-
-              <script>
-              $(document).ready(function() {
-                $('#add-withdraw-link').click(function() {
-                  window.location.href = "<%= out_path %>";
-                });
+          <script>
+            $(document).ready(function() {
+              $('#add-baby-link').click(function() {
+                window.location.href = "<%= babies_path(@user)%>";
               });
-              </script>
-            </td>
-          </tr>
-      </table>
-    </div>
+            });
+          </script>
+
+          <div class="row" id="add-withdraw-link">
+            <p>退会</p>
+          </div>
+
+          <script>
+            $(document).ready(function() {
+              $('#add-withdraw-link').click(function() {
+                window.location.href = "<%= out_path %>";
+              });
+            });
+          </script>
+        </td>
+      </tr>
+    </table>
   </div>
+</div>

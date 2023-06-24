@@ -6,32 +6,24 @@
   }
 </style>
 
-<footer style="background-image: url(<%= asset_path('1.jpg') %>);
-               background-size: cover;
-               height: 80px;
-               width: 100%;
-               display: flex;
-               justify-content: center;
-               align-items: center;
-               bottom: 0;">
-
+<footer class="footer">
   <%= link_to timer_path, class: "text-center px-1 pt-3", style: "color: #4682b4" do %>
     <p class="mb-0"><i class="fas fa-history"></i></p>
-    <p style="font-size: 0.4em;">タイマー</p>
+    <p>タイマー</p>
   <% end %>
 
   <%= link_to blogs_path, class: "text-center px-3 pt-3", style: "color: #4682b4" do %>
     <p class="mb-0"><i class="fas fa-calendar-check fa-lg"></i></p>
-    <p style="font-size: 0.4em;">カレンダー</p>
+    <p>カレンダー</p>
   <% end %>
 
   <%= link_to parent_path(current_user.id), class: "text-center px-1 pt-3", style: "color: #4682b4" do %>
     <p class="mb-0"><i class="fas fa-bars fa-lg"></i></p>
-    <p style="font-size: 0.4em;">マイページ</p>
+    <p>マイページ</p>
   <% end %>
 
   <%= link_to destroy_user_session_path, class: "text-center px-2 pt-3", style: "color: #4682b4", method: :delete do %>
     <p class="mb-0"><i class="fas fa-sign-out-alt fa-lg"></i></p>
-    <p style="font-size: 0.4em;">ログアウト</p>
+    <p>ログアウト</p>
   <% end %>
 </footer>
