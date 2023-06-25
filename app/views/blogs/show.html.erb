@@ -1,22 +1,8 @@
- <style>
-  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
-  body {
-    font-family: 'Yomogi', cursive;
-  }
-  </style>
-
-<!--80px=footerの高さ-->
-<div style="background-image: url(<%= asset_path('1.jpg') %>);
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            min-height: calc(100vh - 80px);">
-
-  <table style="border: none; border-radius: 20px; max-width: 100%; background-color: rgba(255, 255, 255, 0.8);">
+<div class="blogs-edit-main">
+  <table class="custom-table2">
       <h2>投稿内容</h2>
-      <td style="padding: 20px; text-align: center; width: 500px; height: 400px; font-family: 'Yomogi', cursive;">
+      <td class="custom-td4">
+
         <table class="table" style="max-width: 100%;">
             <thead class="rounded-circle" style="background-color: #ffc0cb;">
               <tr>
@@ -41,10 +27,7 @@
         </table>
 
         <br>
-        <div style="display: flex;
-                    justify-content: space-between;
-                    margin-top: 10px;">
-
+        <div class="blogs-show-main">
           <%= link_to edit_blog_path(@blog), class: "btn btn-info text-center px-1 pt-2 rounded-pill",
                                              style: "color: white; width: 120px; white-space: nowrap;" do
           %>

@@ -1,28 +1,8 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
-
-  body {
-    font-family: 'Yomogi', cursive;
-  }
-</style>
-<header style="width: 100%;
-               height: 80px;
-               background-image: url(<%= asset_path('1.jpg') %>);
-               display: flex;
-               justify-content: center;
-               align-items: center;
-               top: 0;">
-
-  <h2 style="margin: 0; color: #4682b4">タイマー</h2>
+<header class="parents-header1">
+  <h2 class="header-text2">タイマー</h2>
 </header>
 
-<!--160pxはheaderとfooterの高さを合計した値-->
-<div style="display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            min-height: calc(100vh - 160px);">
-
+<div class="parents-timer-main">
   <!-- タイマーの表示部分 -->
   <div class="timer" id="timer">00:00</div>
   <!-- ボタンコントロール部分 -->

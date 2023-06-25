@@ -2,15 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.blogs-header {
+  width: 100%;
+  height: 80px;
+  background-image: url(1.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blogs-index-main {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.blogs-show-main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+// 80px=footerの高さ
+.blogs-edit-main {
+  background-image: url(1.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+}
+
+.custom-table2 {
+  border: none;
+  border-radius: 20px;
+  max-width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.custom-td4 {
+  padding: 20px;
+  text-align: center;
+  width: 500px;
+  height: 400px;
+}
+
 // 前月の日付セルの背景色を透明にする
 .simple-calendar .prev-month {
-  // rgba(0, 0, 0, 0)は完全な透明色を表す
   background-color: rgba(0, 0, 0, 0);
 }
 
 // 翌月の日付セルの背景色を透明にする
 .simple-calendar .next-month{
-  // rgba(0, 0, 0, 0)は完全な透明色を表す
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -29,9 +71,11 @@
   color:blue;
 }
 
-// 100vhはビューポートの高さの100%を表します
+// 160px=headerとfooterの高さの合計
 .toppage{
   min-height: calc(100vh - 160px);
+  margin-left: 30px;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 // カレンダー内の奇数週の色指定

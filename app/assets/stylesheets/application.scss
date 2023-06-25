@@ -28,12 +28,12 @@ html {
 }
 
 .timer {
-  font-size: 8rem;
+  font-size: 120px;
   text-align: center;
 }
 
 .controls {
-  font-size: 1rem;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -41,14 +41,14 @@ html {
 /* デスクトップPCなどの中サイズモニタ（960px）以下の際に適用される設定 */
 @media screen and (max-width:960px) {
   .timer {
-    font-size: 6rem;
+    font-size: 50px;
   }
 }
 
 /* ノートPCなどの中サイズモニタ（720px）以下の際に適用される設定 */
 @media screen and (max-width:720px) {
   .timer {
-    font-size: 4rem;
+    font-size: 40px;
   }
 }
 

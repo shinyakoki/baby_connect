@@ -1,83 +1,67 @@
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+<header class="blogs-header">
+  <h2 class="header-text">カレンダー</h2>
+</header>
 
-  body {
-    font-family: 'Yomogi', cursive;
-  }
-</style>
-
-  <header style="width: 100%;
-                 height: 80px;
-                 background-image: url(<%= asset_path('1.jpg') %>);
-                 display: flex;
-                 justify-content: center;
-                 align-items: center;">
-
-    <h2 style="margin: 0; color: #4682b4">カレンダー</h2>
-  </header>
-
-  <div style="background-color: rgba(255, 255, 255, 1);">
-    <div class="toppage" style="margin-left: 30px;">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="schedule text-center mt-3">今後の予定一覧</div>
-          <table class="table">
-            <thead class="rounded-circle" style="background-color: #ffc0cb;">
-              <tr>
-                <th style="color: white;">タイトル</th>
-                <th style="color: white;">日程</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @blogs.each do |blog| %>
-                <tr>
-                  <td><%= link_to blog.title, blog, style: "color: black;" %></td>
-                  <td><%= "#{blog.start_time.month}月#{blog.start_time.day}日" %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <%= paginate @blogs %>
-
-          <%= form_with(model: @blog, local: true) do |form| %>
-            <div class="title text-center">
-              <div class="form-tag text-center">タイトル</div>
-              <%= form.text_field :title, :size=>32 %>
-            </div>
-
-            <div class="content text-center">
-              <div class="form-tag text-center">内容</div>
-              <%= form.text_area :content, rows: 3, cols: 31.5 %>
-            </div>
-
-            <div class="time text-center">
-              <div class="form-tag text-center">時間</div>
-              <%= form.datetime_select :start_time %>
-            </div>
-
-            <div class="submit mt-3 text-center">
-              <%= form.submit "登録する", style: "background-color: pink;
-                                                  border: 2px solid pink;
-                                                  border-radius: 30px;
-                                                  padding: 8px 15px;
-                                                  color: white;
-                                                  font-weight: bold;"
-              %>
-            </div>
+<div class="toppage">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="text-center mt-3">今後の予定一覧</div>
+      <table class="table">
+        <thead class="rounded-circle" style="background-color: #ffc0cb;">
+          <tr>
+            <th style="color: white;">タイトル</th>
+            <th style="color: white;">日程</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @blogs.each do |blog| %>
+            <tr>
+              <td><%= link_to blog.title, blog, style: "color: black;" %></td>
+              <td><%= "#{blog.start_time.month}月#{blog.start_time.day}日" %></td>
+            </tr>
           <% end %>
+        </tbody>
+      </table>
+      <%= paginate @blogs %>
+
+      <%= form_with(model: @blog, local: true) do |form| %>
+        <div class="title text-center">
+          <div class="form-tag text-center">タイトル</div>
+          <%= form.text_field :title, size: 32 %>
         </div>
 
-        <div class="col-md-8">
-          <%= month_calendar events: @blogs do |date, blogs| %>
-            <%= date.day %>
-
-            <% blogs.each do |blog| %>
-              <div>
-                <%= link_to blog.title, blog %>
-              </div>
-            <% end %>
-          <% end %>
+        <div class="content text-center">
+          <div class="form-tag text-center">内容</div>
+          <%= form.text_area :content, rows: 3, cols: 31.5 %>
         </div>
-      </div>
+
+        <div class="time text-center">
+          <div class="form-tag text-center">時間</div>
+          <%= form.datetime_select :start_time %>
+        </div>
+
+        <div class="submit mt-3 text-center">
+          <%= form.submit "登録する", style: "background-color: pink;
+                                              border: 2px solid pink;
+                                              border-radius: 30px;
+                                              padding: 8px 15px;
+                                              color: white;
+                                              font-weight: bold;"
+          %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-8">
+      <%= month_calendar events: @blogs do |date, blogs| %>
+        <%= date.day %>
+
+        <% blogs.each do |blog| %>
+          <div>
+            <%= link_to blog.title, blog %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
+</div>

@@ -1,46 +1,27 @@
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
-    body {
-      font-family: 'Yomogi', cursive;
-    }
-  </style>
-
-  <div style="background-image: url(<%= asset_path('1.jpg') %>);
-              background-size: cover;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              flex-direction: column;
-              min-height: calc(100vh - 80px);">
-    <h3>本当に退会しますか？</h3>
-    <table style="border: none;
-                  border-radius: 20px;
-                  padding: 20px;
-                  text-align: center;
-                  width: 300px;
-                  height: 230px;">
-      <tr>
-        <td style="background-color: rgba(255, 255, 255, 0.6);
-                   border-radius: 20px;">
-          <br>
-          <%= link_to withdraw_path, class: "btn text-center px-3 pt-1 rounded-pill",
-                                     style: "background-color: #FFC0CB;
-                                             color: white;",
-                                     method: :patch,
-                                     data: { confirm: "【確認】退会すると登録情報やこれまでの記録が閲覧できなくなります。本当に退会しますか？" } do
-          %>
-            退会する
-          <% end %>
-          <br>
-          <%= link_to parent_path(current_user.id), class: "btn text-center mt-4 px-2 pt-1 rounded-pill",
-                                                    style: "background-color: #808080;
-                                                            color: white;" do
-          %>
-            キャンセル
-          <% end %>
-        </td>
-      </tr>
-    </table>
-  </div>
+<div class="parents-out-main">
+  <h3>本当に退会しますか？</h3>
+  <table class="custom-table3">
+    <tr>
+      <td class="custom-td5">
+        <br>
+        <%= link_to withdraw_path, class: "btn text-center px-3 pt-1 rounded-pill",
+                                   style: "background-color: #FFC0CB;
+                                           color: white;",
+                                   method: :patch,
+                                   data: { confirm: "【確認】退会すると登録情報やこれまでの記録が閲覧できなくなります。本当に退会しますか？" } do
+        %>
+          退会する
+        <% end %>
+        <br>
+        <%= link_to parent_path(current_user.id), class: "btn text-center mt-4 px-2 pt-1 rounded-pill",
+                                                  style: "background-color: #808080;
+                                                          color: white;" do
+        %>
+          キャンセル
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>
 
 
