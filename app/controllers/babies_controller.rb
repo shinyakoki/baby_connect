@@ -1,5 +1,7 @@
 class BabiesController < ApplicationController
-
+  
+  before_action :authenticate_user!
+  
   def index
     @babies = current_user.babies
     @baby = Baby.new
@@ -21,8 +23,11 @@ class BabiesController < ApplicationController
   def create
     @baby = Baby.new(baby_parameter)
     @baby.user_id = current_user.id
-    @baby.save
-    redirect_to babies_path
+    if @baby.save
+      redirect_to babies_path
+    else
+      render :new
+    end
   end
 
   def destroy

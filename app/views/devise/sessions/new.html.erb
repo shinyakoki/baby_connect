@@ -6,7 +6,7 @@
   <div class="form">
     <%= form_with(model: resource, local: true, url: session_path(resource_name), method: :post) do |f| %>
       <% flash.each do |name, msg| %>
-        <div class="alert alert-danger rounded-pill " role="alert">
+        <div class="alert alert-danger rounded-pill text-center",style="width: 250px;", role="alert">
           <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
         </div>
       <% end %>

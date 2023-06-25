@@ -27,12 +27,12 @@
       <%= form_with(model: @blog, local: true) do |form| %>
         <div class="title text-center">
           <div class="form-tag text-center">タイトル</div>
-          <%= form.text_field :title, size: 32 %>
+          <%= form.text_field :title, required: true, size: 32 %>
         </div>
 
         <div class="content text-center">
           <div class="form-tag text-center">内容</div>
-          <%= form.text_area :content, rows: 3, cols: 31.5 %>
+          <%= form.text_area :content, rows: 3, required: true, cols: 31.5 %>
         </div>
 
         <div class="time text-center">

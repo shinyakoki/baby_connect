@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @blogs = Blog.page(params[:page])
     @blog = Blog.new

@@ -1,5 +1,7 @@
 class ParentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def show
     @user = current_user
     @babies = current_user.babies
