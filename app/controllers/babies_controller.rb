@@ -1,7 +1,7 @@
 class BabiesController < ApplicationController
-  
+
   before_action :authenticate_user!
-  
+
   def index
     @babies = current_user.babies
     @baby = Baby.new
@@ -59,13 +59,18 @@ class BabiesController < ApplicationController
   end
 
   def create_record
-    baby = Baby.find(params[:id])
+    @baby = Baby.find(params[:id])
     date = DateTime.parse(params[:user_record])
     time_parts = params[:date].split(':').map(&:to_i)
     # time_parts[0]=時 time_parts[1]=分 00=秒 +0900=タイムゾーンのオフセット
     new_date = DateTime.new(date.year, date.month, date.day, time_parts[0], time_parts[1], 00, "+0900")
-    Record.create(item: params[:item], amount: params[:amount], date: new_date, unit: Record.units[:ml],baby_id: baby.id)
-    redirect_to baby_path(id: baby.id, date: new_date)
+    record = @baby.records.build(item: params[:item], amount: params[:amount], date: new_date, unit: Record.units[:ml])
+    if record.save
+      redirect_to baby_path(id: @baby.id, date: new_date)
+    else
+      @record = params[:user_record]
+      render 'new_record'
+    end
   end
 
   def next_day
