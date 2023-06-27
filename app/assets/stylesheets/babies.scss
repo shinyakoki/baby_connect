@@ -54,6 +54,19 @@
   min-height: calc(100vh - 80px);
 }
 
+// 160px=headerとfooterの高さの合計
+.babies-show-main {
+  background-color: pink;
+  min-height: calc(100vh - 160px);
+}
+
+// 160px=headerとfooterの高さの合計
+.babies-show-main1 {
+  background-color: white;
+  position: relative;
+  min-height: calc(100vh - 160px);
+}
+
 // 80px=footerの高さ
 .babies-edit-main {
   background-image: url(1.jpg);
@@ -126,6 +139,12 @@
   align-items: center;
   bottom: 0;
   font-size: 12px;
+}
+
+.add-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
 }
 
 #baby-link, .baby-link {

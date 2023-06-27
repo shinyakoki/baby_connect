@@ -4,48 +4,50 @@
       <h2>今日の記録</h2>
       <td class="custom-td3">
         <p class="mt-0 mb-0 text-center">記録する内容を選択して下さい</p>
-        <div class="btn-wrapper col-10 mx-auto">
-          <%= form_with url: "/babies/#{@baby.id}/create_record" do |f| %>
-            <div class="row">
-              <div class="col-sm-6 mx-auto mb-3">
-                <%= f.select :item,
-                              Record.items_i18n.keys.map{|k| [I18n.t("enums.record.item.#{k}"), k]}, {},
-                              class: "form-control rounded-pill",
-                              style: "width: 10rem; margin-left: auto; margin-right: auto;",
-                              onchange: "toggleAmountField(this)"
-                %>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="mt-0 mb-3 mx-auto" id="amountField" style="display: none;">
-                <%= f.text_field :amount,
-                                  autofocus: true,
-                                  required: true,
-                                  autocomplete: "amount",
-                                  size: "20",
-                                  placeholder: "量を入力して下さい",
-                                  class: "rounded-pill",
-                                  style: "border-color: white; margin-left: auto; margin-right: auto;"
-                %> ml
-              </div>
-            </div>
-              <div class="mt-0">
-                <p class="mt-0 mb-0">時間を選択して下さい</p>
-              </div>
+        <div class="container">
+          <div class="btn-wrapper col-10 mx-auto">
+            <%= form_with url: "/babies/#{@baby.id}/create_record" do |f| %>
               <div class="row">
-                <div class="col-sm-6col-8 mx-auto mb-3">
-                  <%= f.time_field :date, autofocus: true, required: true, autocomplete: "date", class: "form-control rounded-pill" %>
-                  <%= f.hidden_field :user_record, :value => @record %>
+                <div class="col-sm-6 mx-auto mb-3">
+                  <%= f.select :item,
+                                Record.items_i18n.keys.map{|k| [I18n.t("enums.record.item.#{k}"), k]}, {},
+                                class: "form-control rounded-pill",
+                                style: "width: 10rem; margin-left: auto; margin-right: auto;",
+                                onchange: "toggleAmountField(this)"
+                  %>
                 </div>
               </div>
 
-            <div class="row">
-            <div class="col-sm-6 col-8 mx-auto mt-3 mb-5">
-              <%= f.submit "登録する", class:"btn btn-info btn-sm btn-block rounded-pill mb-1"%>
-            </div>
-            </div>
-          <% end %>
+              <div class="row">
+                <div class="mt-0 mb-3 mx-auto" id="amountField" style="display: none;">
+                  <%= f.text_field :amount,
+                                    autofocus: true,
+                                    required: true,
+                                    autocomplete: "amount",
+                                    size: "20",
+                                    placeholder: "量を入力して下さい",
+                                    class: "rounded-pill",
+                                    style: "border-color: white; margin-left: auto; margin-right: auto;"
+                  %> ml
+                </div>
+              </div>
+                <div class="mt-0">
+                  <p class="mt-0 mb-0">時間を選択して下さい</p>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6col-8 mx-auto mb-3">
+                    <%= f.time_field :date, autofocus: true, required: true, autocomplete: "date", class: "form-control rounded-pill" %>
+                    <%= f.hidden_field :user_record, :value => @record %>
+                  </div>
+                </div>
+
+              <div class="row">
+              <div class="col-sm-6 col-8 mx-auto mt-3 mb-5">
+                <%= f.submit "登録する", class:"btn btn-info btn-sm btn-block rounded-pill mb-1"%>
+              </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </td>
     </tr>

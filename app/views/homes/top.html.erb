@@ -11,28 +11,30 @@
     </h1>
   </div>
 
-  <div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
-      <% if user_signed_in? %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete,
-                      class: "btn btn-danger rounded-pill btn-sm btn-block text-white" %>
-      <% else %>
-        <p class="custom-button">2回目以降はこちら</p>
-        <%= link_to 'Login', new_user_session_path,
-                      class: "btn btn-primary rounded-pill btn-sm btn-block text-white" %>
-      <% end %>
-    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete,
+                        class: "btn btn-danger rounded-pill btn-sm btn-block text-white" %>
+        <% else %>
+          <p class="custom-button">2回目以降はこちら</p>
+          <%= link_to 'Login', new_user_session_path,
+                        class: "btn btn-primary rounded-pill btn-sm btn-block text-white" %>
+        <% end %>
+      </div>
 
-    <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
-      <p class="custom-button">ゲストの方はこちら</p>
-      <%= link_to 'ゲストLogin', users_guest_sign_in_path, method: :post,
-                    class: "btn btn-info rounded-pill btn-sm btn-block text-white" %>
-    </div>
+      <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
+        <p class="custom-button">ゲストの方はこちら</p>
+        <%= link_to 'ゲストLogin', users_guest_sign_in_path, method: :post,
+                      class: "btn btn-info rounded-pill btn-sm btn-block text-white" %>
+      </div>
 
-    <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
-      <p class="custom-button">初めての方はこちら</p>
-      <%= link_to 'Sign up', new_user_registration_path,
-                    class: "btn btn-success rounded-pill btn-sm btn-block text-white" %>
+      <div class="col-lg-3 col-md-4 col-sm-4 col-10 mx-auto">
+        <p class="custom-button">初めての方はこちら</p>
+        <%= link_to 'Sign up', new_user_registration_path,
+                      class: "btn btn-success rounded-pill btn-sm btn-block text-white" %>
+      </div>
     </div>
   </div>
 </div>

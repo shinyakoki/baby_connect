@@ -1,8 +1,8 @@
 <header class="babies-header1 px-5">
   <div class="row justify-content-between align-items-end">
-    <%= form_with url: "/babies/#{@baby.id}/back_day" do |f| %>
+    <% form_with url: "/babies/#{@baby.id}/back_day" do |f| %>
       <input type="hidden" name="date" value="<%= params[:date] %>">
-      <%= f.submit "＜", class:"btn btn-secondary btn-sm mb-3"%>
+      <%= f.submit "＜", class: "btn btn-secondary btn-sm mb-3" %>
     <% end %>
 
     <h3 class="header-text1 mx-auto pb-1">
@@ -11,19 +11,18 @@
     </h3>
 
     <% unless @is_hidden %>
-      <%= form_with url: "/babies/#{@baby.id}/next_day" do |f| %>
+      <% form_with url: "/babies/#{@baby.id}/next_day" do |f| %>
         <input type="hidden" name="date" value="<%= params[:date] %>">
-        <%= f.submit "＞", class:"btn btn-secondary btn-sm mb-3"%>
+        <%= f.submit "＞", class: "btn btn-secondary btn-sm mb-3" %>
       <% end %>
     <% end %>
   </div>
 </header>
 
-<div class="row">
-  <!--160px=headerとfooterの高さの合計-->
-  <div class="col-3" style="background-color: pink; min-height: calc(100vh - 160px);"></div>
-    <!--160px=headerとfooterの高さの合計-->
-    <div class="col-6" style="background-color: white; position: relative; min-height: calc(100vh - 160px);">
+<div class="container-fluid">
+  <div class="row">
+    <div class="babies-show-main col-lg-3 col-md-3 col-sm-3 col-3"></div>
+    <div class="babies-show-main1 col-lg-6 col-md-6 col-sm-6 col-6">
       <% @records.each do |record| %>
         <div>
           <%= record.item_i18n %>
@@ -36,7 +35,7 @@
       <% end %>
 
       <% record = params[:date] %>
-      <div class="add-button" style="position: absolute; bottom: 20px; right: 20px;">
+      <div class="add-button">
         <%= link_to new_record_path(@baby.id, record) do %>
           <button type="button" class="btn btn-secondary btn-outline-light rounded-circle p-0" style="width: 3rem; height: 3rem;">
             <i class="fa fa-plus"></i>
@@ -44,6 +43,6 @@
         <% end %>
       </div>
     </div>
-  <!--160px=headerとfooterの高さの合計-->
-  <div class="col-3" style="background-color: pink; min-height: calc(100vh - 160px);"></div>
+    <div class="babies-show-main col-lg-3 col-md-3 col-sm-3 col-3"></div>
+  </div>
 </div>

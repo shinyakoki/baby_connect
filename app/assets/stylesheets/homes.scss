@@ -112,6 +112,7 @@ body::after {
   flex-direction: column;
   min-height: calc(100vh - 120px);
   background-image: url(1.jpg);
+  padding-right: 0;
 }
 
 .custom-heading-1 {
