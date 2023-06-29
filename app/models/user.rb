@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :password, format: {
     with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i,
     message: 'は英数字の混合である必要があります'
-  }
+  },on: :create
 
   # 1つのuser(親)が複数のbabyを持つことができる。
   has_many :babies, dependent: :destroy
