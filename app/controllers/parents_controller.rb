@@ -18,7 +18,6 @@ class ParentsController < ApplicationController
   # 退会処理
   def withdraw
     @user = current_user
-    # byebug
     @user.update(is_deleted: true)
     reset_session
     redirect_to root_path
